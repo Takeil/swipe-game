@@ -1,10 +1,168 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl7ex0ni1wl18"]
+[gd_scene load_steps=4 format=3 uid="uid://cl7ex0ni1wl18"]
 
-[ext_resource type="Script" path="res://scenes/game_controller.gd" id="1_4nby3"]
+[ext_resource type="Script" path="res://scripts/game_controller.gd" id="1_4nby3"]
+[ext_resource type="Texture2D" uid="uid://c1yj5kqttsmts" path="res://assets/images/Tile.png" id="2_5jtf3"]
+[ext_resource type="PackedScene" uid="uid://beb6kgvph1drn" path="res://scenes/item.tscn" id="4_oka2a"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Game" type="Node2D" parent="."]
+[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("tiles", "item_parent")]
 script = ExtResource("1_4nby3")
+tiles = NodePath("../Tiles")
+item_parent = NodePath("../Items")
+item_prefab = ExtResource("4_oka2a")
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Tiles"]
+position = Vector2(-30, -30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D2" type="Node2D" parent="Tiles"]
+position = Vector2(-15, -30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D2"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D3" type="Node2D" parent="Tiles"]
+position = Vector2(0, -30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D3"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D4" type="Node2D" parent="Tiles"]
+position = Vector2(15, -30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D4"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D5" type="Node2D" parent="Tiles"]
+position = Vector2(30, -30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D5"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D6" type="Node2D" parent="Tiles"]
+position = Vector2(-30, -15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D6"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D7" type="Node2D" parent="Tiles"]
+position = Vector2(-15, -15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D7"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D8" type="Node2D" parent="Tiles"]
+position = Vector2(0, -15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D8"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D9" type="Node2D" parent="Tiles"]
+position = Vector2(15, -15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D9"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D10" type="Node2D" parent="Tiles"]
+position = Vector2(30, -15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D10"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D11" type="Node2D" parent="Tiles"]
+position = Vector2(-30, 0)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D11"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D12" type="Node2D" parent="Tiles"]
+position = Vector2(-15, 0)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D12"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D13" type="Node2D" parent="Tiles"]
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D13"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D14" type="Node2D" parent="Tiles"]
+position = Vector2(15, 0)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D14"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D15" type="Node2D" parent="Tiles"]
+position = Vector2(30, 0)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D15"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D16" type="Node2D" parent="Tiles"]
+position = Vector2(-30, 15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D16"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D17" type="Node2D" parent="Tiles"]
+position = Vector2(-15, 15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D17"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D18" type="Node2D" parent="Tiles"]
+position = Vector2(0, 15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D18"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D19" type="Node2D" parent="Tiles"]
+position = Vector2(15, 15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D19"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D20" type="Node2D" parent="Tiles"]
+position = Vector2(30, 15)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D20"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D21" type="Node2D" parent="Tiles"]
+position = Vector2(-30, 30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D21"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D22" type="Node2D" parent="Tiles"]
+position = Vector2(-15, 30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D22"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D23" type="Node2D" parent="Tiles"]
+position = Vector2(0, 30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D23"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D24" type="Node2D" parent="Tiles"]
+position = Vector2(15, 30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D24"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Node2D25" type="Node2D" parent="Tiles"]
+position = Vector2(30, 30)
+
+[node name="Tile" type="Sprite2D" parent="Tiles/Node2D25"]
+texture = ExtResource("2_5jtf3")
+
+[node name="Items" type="Node2D" parent="."]
