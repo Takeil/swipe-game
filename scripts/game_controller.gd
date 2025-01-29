@@ -1,11 +1,18 @@
 extends Node
 
+class_name GameController
+
 @export var tiles : Node2D
 @export var item_prefab : PackedScene
 var cells : Array[Node2D]
 var rng = RandomNumberGenerator.new()
 
+static var Instance: GameController
+signal swipe
+
 func _ready() -> void:
+	Instance = self
+	
 	for child in tiles.get_children():
 		cells.append(child)
 	rng.seed = hash(Time.get_datetime_string_from_system())
@@ -13,6 +20,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		spawn_item()
+	
+	if Input.is_action_just_pressed('right'):
+		swipe.emit('R')
+	if Input.is_action_just_pressed('left'):
+		swipe.emit('L')
+	if Input.is_action_just_pressed('up'):
+		swipe.emit('U')
+	if Input.is_action_just_pressed('down'):
+		swipe.emit('D')
 
 func spawn_item() -> void:
 	rng.randi_range(0, 100)
