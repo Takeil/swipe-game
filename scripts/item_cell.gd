@@ -1,5 +1,3 @@
-extends Node
+extends Node2D
 
-class_name item_cell
-
-@export var value : int
+class_name ItemCell

@@ -22,13 +22,13 @@ func _process(_delta: float) -> void:
 		spawn_item()
 	
 	if Input.is_action_just_pressed('right'):
-		swipe.emit('R')
+		swipe.emit('Right')
 	if Input.is_action_just_pressed('left'):
-		swipe.emit('L')
+		swipe.emit('Left')
 	if Input.is_action_just_pressed('up'):
-		swipe.emit('U')
+		swipe.emit('Up')
 	if Input.is_action_just_pressed('down'):
-		swipe.emit('D')
+		swipe.emit('Down')
 
 func spawn_item() -> void:
 	rng.randi_range(0, 100)
@@ -41,3 +41,5 @@ func spawn_item() -> void:
 	var instance = item_prefab.instantiate()
 	#instance.position = cells[spawn].position
 	cells[spawn].add_child(instance)
+	var s = cells[spawn] as TileCell
+	s.set_item(instance)
