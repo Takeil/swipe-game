@@ -8,7 +8,6 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	for child in tiles.get_children():
 		cells.append(child)
-		print(cells[0].get_child_count())
 	rng.seed = hash(Time.get_datetime_string_from_system())
 
 func _process(_delta: float) -> void:

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://beb6kgvph1drn"]
+[gd_scene load_steps=3 format=3 uid="uid://beb6kgvph1drn"]
 
+[ext_resource type="Script" path="res://scripts/item_cell.gd" id="1_qktp4"]
 [ext_resource type="Texture2D" uid="uid://bspiv7bdhabc0" path="res://assets/images/icon.svg" id="1_wqnil"]
 
 [node name="Item" type="Node2D"]
+script = ExtResource("1_qktp4")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.109375, 0.109375)
