@@ -7,4 +7,6 @@
 script = ExtResource("1_bl4nx")
 
 [node name="Tile" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
 texture = ExtResource("1_dlq3h")

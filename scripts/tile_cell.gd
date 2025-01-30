@@ -11,7 +11,7 @@ var item : ItemCell
 
 func set_item(_item : ItemCell) -> void:
 	item = _item
-	
+
 func clear_item() -> void:
 	item = null
 
@@ -35,6 +35,7 @@ func on_swipe(dir) -> void:
 		if down != null:
 			return
 		slide_down(self)
+	
 
 func slide_right(curr_cell: TileCell) -> void:
 	if curr_cell.left == null:
@@ -47,16 +48,18 @@ func slide_right(curr_cell: TileCell) -> void:
 	if next_cell.item != null:
 		if curr_cell.item == null:
 			next_cell.item.reparent(curr_cell)
-			next_cell.item.position = Vector2.ZERO
 			curr_cell.set_item(next_cell.item)
 			next_cell.clear_item()
 			slide_right(curr_cell)
 		elif curr_cell.left.item != next_cell.item:
 			next_cell.item.reparent(curr_cell.left)
-			next_cell.item.position = Vector2.ZERO
+			if curr_cell.item != null:
+				if !curr_cell.item.damage_and_health_check(next_cell.item.damage):
+					curr_cell.item.queue_free()
+					curr_cell.clear_item()
 			curr_cell.left.set_item(next_cell.item)
 			next_cell.clear_item()
-
+	
 	slide_right(curr_cell.left)
 
 func slide_left(curr_cell: TileCell) -> void:
@@ -68,18 +71,22 @@ func slide_left(curr_cell: TileCell) -> void:
 		next_cell = next_cell.right
 	
 	if next_cell.item != null:
+		if curr_cell.item != null:
+			print(curr_cell.item.name + 'hits' + next_cell.item.name)
 		if curr_cell.item == null:
 			next_cell.item.reparent(curr_cell)
-			next_cell.item.position = Vector2.ZERO
 			curr_cell.set_item(next_cell.item)
 			next_cell.clear_item()
 			slide_left(curr_cell)
 		elif curr_cell.right.item != next_cell.item:
 			next_cell.item.reparent(curr_cell.right)
-			next_cell.item.position = Vector2.ZERO
+			if curr_cell.item != null:
+				if !curr_cell.item.damage_and_health_check(next_cell.item.damage):
+					curr_cell.item.queue_free()
+					curr_cell.clear_item()
 			curr_cell.right.set_item(next_cell.item)
 			next_cell.clear_item()
-
+	
 	slide_left(curr_cell.right)
 
 func slide_up(curr_cell: TileCell) -> void:
@@ -91,18 +98,22 @@ func slide_up(curr_cell: TileCell) -> void:
 		next_cell = next_cell.down
 	
 	if next_cell.item != null:
+		if curr_cell.item != null:
+			print(curr_cell.item.name + 'hits' + next_cell.item.name)
 		if curr_cell.item == null:
 			next_cell.item.reparent(curr_cell)
-			next_cell.item.position = Vector2.ZERO
 			curr_cell.set_item(next_cell.item)
 			next_cell.clear_item()
 			slide_up(curr_cell)
 		elif curr_cell.down.item != next_cell.item:
 			next_cell.item.reparent(curr_cell.down)
-			next_cell.item.position = Vector2.ZERO
+			if curr_cell.item != null:
+				if !curr_cell.item.damage_and_health_check(next_cell.item.damage):
+					curr_cell.item.queue_free()
+					curr_cell.clear_item()
 			curr_cell.down.set_item(next_cell.item)
 			next_cell.clear_item()
-
+	
 	slide_up(curr_cell.down)
 
 func slide_down(curr_cell: TileCell) -> void:
@@ -114,16 +125,20 @@ func slide_down(curr_cell: TileCell) -> void:
 		next_cell = next_cell.up
 	
 	if next_cell.item != null:
+		if curr_cell.item != null:
+			print(curr_cell.item.name + 'hits' + next_cell.item.name)
 		if curr_cell.item == null:
 			next_cell.item.reparent(curr_cell)
-			next_cell.item.position = Vector2.ZERO
 			curr_cell.set_item(next_cell.item)
 			next_cell.clear_item()
 			slide_down(curr_cell)
 		elif curr_cell.up.item != next_cell.item:
 			next_cell.item.reparent(curr_cell.up)
-			next_cell.item.position = Vector2.ZERO
+			if curr_cell.item != null:
+				if !curr_cell.item.damage_and_health_check(next_cell.item.damage):
+					curr_cell.item.queue_free()
+					curr_cell.clear_item()
 			curr_cell.up.set_item(next_cell.item)
 			next_cell.clear_item()
-
+	
 	slide_down(curr_cell.up)
