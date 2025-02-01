@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://beb6kgvph1drn" path="res://scenes/items/item.tscn" id="4_oka2a"]
 
 [node name="Main" type="Node2D"]
+position = Vector2(45, 45)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -35,7 +35,6 @@ func on_swipe(dir) -> void:
 		if down != null:
 			return
 		slide_down(self)
-	
 
 func slide_right(curr_cell: TileCell) -> void:
 	if curr_cell.left == null:
@@ -71,8 +70,6 @@ func slide_left(curr_cell: TileCell) -> void:
 		next_cell = next_cell.right
 	
 	if next_cell.item != null:
-		if curr_cell.item != null:
-			print(curr_cell.item.name + 'hits' + next_cell.item.name)
 		if curr_cell.item == null:
 			next_cell.item.reparent(curr_cell)
 			curr_cell.set_item(next_cell.item)
@@ -98,8 +95,6 @@ func slide_up(curr_cell: TileCell) -> void:
 		next_cell = next_cell.down
 	
 	if next_cell.item != null:
-		if curr_cell.item != null:
-			print(curr_cell.item.name + 'hits' + next_cell.item.name)
 		if curr_cell.item == null:
 			next_cell.item.reparent(curr_cell)
 			curr_cell.set_item(next_cell.item)
@@ -125,8 +120,6 @@ func slide_down(curr_cell: TileCell) -> void:
 		next_cell = next_cell.up
 	
 	if next_cell.item != null:
-		if curr_cell.item != null:
-			print(curr_cell.item.name + 'hits' + next_cell.item.name)
 		if curr_cell.item == null:
 			next_cell.item.reparent(curr_cell)
 			curr_cell.set_item(next_cell.item)
