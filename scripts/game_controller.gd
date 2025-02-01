@@ -39,7 +39,6 @@ func _process(_delta: float) -> void:
 		swipe.emit('Down')
 		spawn_item()
 
-var index = 0
 func spawn_item() -> void:
 	if !spawning:
 		spawning = true
