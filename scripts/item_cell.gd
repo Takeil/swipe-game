@@ -13,23 +13,43 @@ var health: int = 2
 
 var hp_bar: Control = null
 var df_bar: Control = null
+var unit_sprite: AnimatedSprite2D = null
 
 var damaged_by: Array[ItemCell] = []
+var type = 0
 
 @onready var pix = preload("res://scenes/misc/1px_texturerect.tscn")
 
 func _ready() -> void:
 	hp_bar = $Control/HPBarContainer
 	df_bar = $Control/DFBarContainer
-	
-	modulate = Color(randf(), randf(), randf(), 1.0)
+	unit_sprite = $"Unit Sprite"
 	
 	if show_hp:
 		update_hp_def()
 
+func setup(_type : int):
+	type = _type
+	match _type:
+		0 : print('Friend')
+		1 : print('Enemy')
+		2 : 
+			print('Box')
+			movable = false
+			show_hp = false
+
 func _process(delta: float) -> void:
 	if position != Vector2.ZERO:
 		position = position.move_toward(Vector2.ZERO, delta * 500)
+
+func flip_to(dir : String):
+	if type in [0,1]:
+		match dir:
+			'left':
+				unit_sprite.flip_h = true
+			'right':
+				unit_sprite.flip_h = false
+		pass
 
 func update_hp_def() -> void:
 	Global.delete_children(hp_bar)

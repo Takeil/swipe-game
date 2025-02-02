@@ -1,15 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://beb6kgvph1drn"]
+[gd_scene load_steps=7 format=3 uid="uid://beb6kgvph1drn"]
 
 [ext_resource type="Script" path="res://scripts/item_cell.gd" id="1_qktp4"]
-[ext_resource type="Texture2D" uid="uid://bspiv7bdhabc0" path="res://assets/images/icon.svg" id="1_wqnil"]
+[ext_resource type="Texture2D" uid="uid://0uln8yotally" path="res://assets/sprites/base_character.png" id="2_ybu6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvle8"]
+atlas = ExtResource("2_ybu6k")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch2bg"]
+atlas = ExtResource("2_ybu6k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id14r"]
+atlas = ExtResource("2_ybu6k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23m3u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvle8")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch2bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id14r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Item" type="Node2D"]
 script = ExtResource("1_qktp4")
 movable = false
 
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.109375, 0.109375)
-texture = ExtResource("1_wqnil")
+[node name="Unit Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_23m3u")
+animation = &"attack"
+autoplay = "idle"
+frame_progress = 1.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

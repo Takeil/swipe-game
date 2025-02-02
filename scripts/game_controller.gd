@@ -39,9 +39,10 @@ func _process(_delta: float) -> void:
 		swipe.emit('Down')
 		spawn_item()
 
-func spawn_item() -> void:
+func spawn_item(type = 0) -> void:
 	if !spawning:
 		spawning = true
+	
 	else:
 		return
 	
@@ -53,9 +54,10 @@ func spawn_item() -> void:
 		spawn_item()
 		return
 	
-	var instance = item_prefab.instantiate()
+	var instance = item_prefab.instantiate() as ItemCell
 	#instance.position = cells[spawn].position
 	cells[spawn].add_child(instance)
 	var s = cells[spawn] as TileCell
+	instance.setup(type)
 	s.set_item(instance)
 	spawning = false
