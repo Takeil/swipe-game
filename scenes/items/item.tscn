@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://beb6kgvph1drn"]
+[gd_scene load_steps=17 format=3 uid="uid://beb6kgvph1drn"]
 
 [ext_resource type="Script" path="res://scripts/item_cell.gd" id="1_qktp4"]
-[ext_resource type="Texture2D" uid="uid://bspiv7bdhabc0" path="res://assets/images/icon.svg" id="1_wqnil"]
 [ext_resource type="Texture2D" uid="uid://0uln8yotally" path="res://assets/sprites/base_character.png" id="2_ybu6k"]
 [ext_resource type="Texture2D" uid="uid://bvyjsyhnvnp7a" path="res://assets/sprites/Tree.png" id="3_rhwns"]
+[ext_resource type="Texture2D" uid="uid://ul2c0a5agolm" path="res://assets/sprites/Items.png" id="4_lq8qn"]
 [ext_resource type="FontFile" uid="uid://boemkey51kyvm" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk.ttf" id="5_xm4v2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch2bg"]
@@ -59,11 +59,39 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2de53"]
+atlas = ExtResource("4_lq8qn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5kvd"]
+atlas = ExtResource("4_lq8qn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct3fc"]
+atlas = ExtResource("4_lq8qn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jci5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2de53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5kvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct3fc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Item" type="Node2D"]
 script = ExtResource("1_qktp4")
 
 [node name="UnitSprite" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_23m3u")
 animation = &"idle"
 autoplay = "idle"
@@ -79,11 +107,11 @@ sprite_frames = SubResource("SpriteFrames_p4cre")
 animation = &"tree"
 
 [node name="ItemSprite" type="Node2D" parent="."]
+visible = false
 
-[node name="ItemSprite" type="Sprite2D" parent="ItemSprite"]
-position = Vector2(0, -3)
-scale = Vector2(0.109375, 0.0625)
-texture = ExtResource("1_wqnil")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ItemSprite"]
+sprite_frames = SubResource("SpriteFrames_jci5y")
+frame = 2
 
 [node name="Control" type="Control" parent="ItemSprite"]
 layout_mode = 3
@@ -121,7 +149,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="HPBarContainer" type="HBoxContainer" parent="Control"]
-modulate = Color(0.682353, 0.137255, 0.203922, 1)
+modulate = Color(0.117647, 0.737255, 0.45098, 1)
 custom_minimum_size = Vector2(1, 0)
 layout_direction = 1
 layout_mode = 1
@@ -145,3 +173,34 @@ offset_right = -2.0
 offset_bottom = 1.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
+
+[node name="ATBarContainer" type="VBoxContainer" parent="Control"]
+modulate = Color(0.431373, 0.152941, 0.152941, 1)
+custom_minimum_size = Vector2(1, 0)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 2.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="ATBarContainer2" type="VBoxContainer" parent="Control"]
+modulate = Color(0.431373, 0.152941, 0.152941, 1)
+custom_minimum_size = Vector2(1, 0)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 2

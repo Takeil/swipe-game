@@ -53,6 +53,7 @@ func slide_right(curr_cell: TileCell) -> void:
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
 			if curr_cell.item.type == 3 and next_cell.item.type in [0, 1]:
+				next_cell.item.get_item(curr_cell.item.item_type, curr_cell.item.item_value)
 				curr_cell.item.queue_free()
 				next_cell.item.reparent(curr_cell)
 				curr_cell.set_item(next_cell.item)
@@ -90,6 +91,7 @@ func slide_left(curr_cell: TileCell) -> void:
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
 			if curr_cell.item.type == 3 and next_cell.item.type in [0, 1]:
+				next_cell.item.get_item(curr_cell.item.item_type, curr_cell.item.item_value)
 				curr_cell.item.queue_free()
 				next_cell.item.reparent(curr_cell)
 				curr_cell.set_item(next_cell.item)
@@ -126,6 +128,7 @@ func slide_up(curr_cell: TileCell) -> void:
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
 			if curr_cell.item.type == 3 and next_cell.item.type in [0, 1]:
+				next_cell.item.get_item(curr_cell.item.item_type, curr_cell.item.item_value)
 				curr_cell.item.queue_free()
 				next_cell.item.reparent(curr_cell)
 				curr_cell.set_item(next_cell.item)
@@ -161,6 +164,7 @@ func slide_down(curr_cell: TileCell) -> void:
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
 			if curr_cell.item.type == 3 and next_cell.item.type in [0, 1]:
+				next_cell.item.get_item(curr_cell.item.item_type, curr_cell.item.item_value)
 				curr_cell.item.queue_free()
 				next_cell.item.reparent(curr_cell)
 				curr_cell.set_item(next_cell.item)
