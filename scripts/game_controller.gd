@@ -20,7 +20,9 @@ func _ready() -> void:
 		cells.append(child)
 	rng.seed = hash(Time.get_datetime_string_from_system())
 	
-	spawn_item()
+	spawn_item(0)
+	spawn_item(0)
+	spawn_item(1)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
@@ -39,7 +41,7 @@ func _process(_delta: float) -> void:
 		swipe.emit('Down')
 		spawn_item()
 
-func spawn_item(type = 0) -> void:
+func spawn_item(type = randi_range(1, 3)) -> void:
 	if !spawning:
 		spawning = true
 	

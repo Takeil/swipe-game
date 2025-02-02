@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://beb6kgvph1drn"]
+[gd_scene load_steps=11 format=3 uid="uid://beb6kgvph1drn"]
 
 [ext_resource type="Script" path="res://scripts/item_cell.gd" id="1_qktp4"]
+[ext_resource type="Texture2D" uid="uid://bspiv7bdhabc0" path="res://assets/images/icon.svg" id="1_wqnil"]
 [ext_resource type="Texture2D" uid="uid://0uln8yotally" path="res://assets/sprites/base_character.png" id="2_ybu6k"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jvle8"]
-atlas = ExtResource("2_ybu6k")
-region = Rect2(32, 32, 16, 16)
+[ext_resource type="FontFile" uid="uid://boemkey51kyvm" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk.ttf" id="5_xm4v2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch2bg"]
 atlas = ExtResource("2_ybu6k")
@@ -19,14 +17,6 @@ region = Rect2(16, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jvle8")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ch2bg")
 }, {
 "duration": 1.0,
@@ -37,15 +27,71 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vfwqw"]
+load_path = "res://.godot/imported/Box.png-1890ca4fc4ab9a99f6f9f76274a92259.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1oycd"]
+load_path = "res://.godot/imported/Box.png-1890ca4fc4ab9a99f6f9f76274a92259.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvbs6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_vfwqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_1oycd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Item" type="Node2D"]
 script = ExtResource("1_qktp4")
 movable = false
 
-[node name="Unit Sprite" type="AnimatedSprite2D" parent="."]
+[node name="UnitSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_23m3u")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 1.0
+
+[node name="BoxSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lvbs6")
+autoplay = "default"
+
+[node name="ItemSprite" type="Node2D" parent="."]
+
+[node name="ItemSprite" type="Sprite2D" parent="ItemSprite"]
+position = Vector2(0, -3)
+scale = Vector2(0.109375, 0.0625)
+texture = ExtResource("1_wqnil")
+
+[node name="Control" type="Control" parent="ItemSprite"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="ItemSprite/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_xm4v2")
+theme_override_font_sizes/font_size = 4
+text = "+1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
