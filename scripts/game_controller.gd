@@ -23,6 +23,7 @@ func _ready() -> void:
 	spawn_item(0)
 	spawn_item(0)
 	spawn_item(1)
+	spawn_item(4)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
@@ -41,7 +42,7 @@ func _process(_delta: float) -> void:
 		swipe.emit('Down')
 		spawn_item()
 
-func spawn_item(type = randi_range(1, 3)) -> void:
+func spawn_item(type = randi_range(1, 4)) -> void:
 	if !spawning:
 		spawning = true
 	
@@ -53,7 +54,7 @@ func spawn_item(type = randi_range(1, 3)) -> void:
 	
 	if cells[spawn].get_child_count() != 1 :
 		spawning = false
-		spawn_item()
+		spawn_item(type)
 		return
 	
 	var instance = item_prefab.instantiate() as ItemCell

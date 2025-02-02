@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://beb6kgvph1drn"]
+[gd_scene load_steps=13 format=3 uid="uid://beb6kgvph1drn"]
 
 [ext_resource type="Script" path="res://scripts/item_cell.gd" id="1_qktp4"]
 [ext_resource type="Texture2D" uid="uid://bspiv7bdhabc0" path="res://assets/images/icon.svg" id="1_wqnil"]
 [ext_resource type="Texture2D" uid="uid://0uln8yotally" path="res://assets/sprites/base_character.png" id="2_ybu6k"]
+[ext_resource type="Texture2D" uid="uid://bvyjsyhnvnp7a" path="res://assets/sprites/Tree.png" id="3_rhwns"]
 [ext_resource type="FontFile" uid="uid://boemkey51kyvm" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk.ttf" id="5_xm4v2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch2bg"]
@@ -47,6 +48,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4cre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rhwns")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Item" type="Node2D"]
 script = ExtResource("1_qktp4")
 
@@ -57,8 +69,13 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="BoxSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_lvbs6")
 autoplay = "default"
+
+[node name="ImmovableSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_p4cre")
 
 [node name="ItemSprite" type="Node2D" parent="."]
 

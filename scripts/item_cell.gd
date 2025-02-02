@@ -7,14 +7,15 @@ const MAX_HP: int = 10
 @export var movable: bool = true
 @export var show_hp: bool = true
 
-var damage: int = 1
-var shield: int = 1
-var health: int = 2
+var damage: int = 0
+var shield: int = 0
+var health: int = 0
 
 var hp_bar: Control = null
 var df_bar: Control = null
 var unit_sprite: AnimatedSprite2D = null
 var box_sprite: AnimatedSprite2D = null
+var immovable_sprite : AnimatedSprite2D = null
 var item_sprite: Node2D = null
 
 var damaged_by: Array[ItemCell] = []
@@ -28,6 +29,7 @@ func _ready() -> void:
 	unit_sprite = $UnitSprite
 	box_sprite = $BoxSprite
 	item_sprite = $ItemSprite
+	immovable_sprite = $ImmovableSprite
 
 func setup(_type : int):
 	hp_bar = $Control/HPBarContainer
@@ -35,36 +37,52 @@ func setup(_type : int):
 	unit_sprite = $UnitSprite
 	box_sprite = $BoxSprite
 	item_sprite = $ItemSprite
+	immovable_sprite = $ImmovableSprite
 	pix = preload("res://scenes/misc/1px_texturerect.tscn")
 	
 	type = _type
-	
-	if type in [0, 1]:
-		unit_sprite.visible = true
-		item_sprite.visible = false
-		box_sprite.visible = false
+	show_type(_type)
 	
 	match _type:
-		0 : print('Friend')
+		0 : 
+			health = 2
+			damage = 1
+			shield = 2
+			print('Friend')
 		1 : 
+			health = 2
+			damage = 1
+			shield = 2
 			print('Enemy')
 			modulate = Color(randf(), randf(), randf(), 1.0)
 		2 : 
+			health = 2
+			damage = 0
+			shield = 0
 			print('Box')
-			unit_sprite.visible = false
-			item_sprite.visible = false
-			box_sprite.visible = true
-			movable = false
 			show_hp = false
 		3 : 
+			health = 0
+			damage = 0
+			shield = 0
 			print('Item')
-			unit_sprite.visible = false
-			item_sprite.visible = true
-			box_sprite.visible = false
+			show_hp = false
+		4 : 
+			health = 3
+			damage = 0
+			shield = 0
+			print('Immovable Object')
+			movable = false
 			show_hp = false
 	
 	if show_hp:
 		update_hp_def()
+
+func show_type(type : int):
+	unit_sprite.visible = type in [0, 1]
+	box_sprite.visible = type == 2
+	item_sprite.visible = type == 3
+	immovable_sprite.visible = type == 4
 
 func _process(delta: float) -> void:
 	if position != Vector2.ZERO:
