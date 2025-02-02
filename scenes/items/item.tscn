@@ -49,7 +49,6 @@ animations = [{
 
 [node name="Item" type="Node2D"]
 script = ExtResource("1_qktp4")
-movable = false
 
 [node name="UnitSprite" type="AnimatedSprite2D" parent="."]
 visible = false

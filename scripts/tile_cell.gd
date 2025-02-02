@@ -48,7 +48,7 @@ func slide_right(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.left
 		while next_cell.left != null and next_cell.item == null:
 			next_cell = next_cell.left
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			next_cell.item.flip_to('right')
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
@@ -67,7 +67,7 @@ func slide_right(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.left
 		while next_cell.left != null and next_cell.item == null:
 			next_cell = next_cell.left
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			next_cell.item.flip_to('right')
 			next_cell.item.reparent(curr_cell)
 			curr_cell.item = next_cell.item
@@ -85,7 +85,7 @@ func slide_left(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.right
 		while next_cell.right != null and next_cell.item == null:
 			next_cell = next_cell.right
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			next_cell.item.flip_to('left')
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
@@ -104,7 +104,7 @@ func slide_left(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.right
 		while next_cell.right != null and next_cell.item == null:
 			next_cell = next_cell.right
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			next_cell.item.flip_to('left')
 			next_cell.item.reparent(curr_cell)
 			curr_cell.item = next_cell.item
@@ -122,7 +122,7 @@ func slide_up(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.down
 		while next_cell.down != null and next_cell.item == null:
 			next_cell = next_cell.down
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
 			if curr_cell.item.type == 3 and next_cell.item.type in [0, 1]:
@@ -140,7 +140,7 @@ func slide_up(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.down
 		while next_cell.down != null and next_cell.item == null:
 			next_cell = next_cell.down
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			next_cell.item.reparent(curr_cell)
 			curr_cell.item = next_cell.item
 			next_cell.item = null
@@ -157,7 +157,7 @@ func slide_down(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.up
 		while next_cell.up != null and next_cell.item == null:
 			next_cell = next_cell.up
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			var old_curr_item = curr_cell.item
 			var old_next_item = next_cell.item
 			if curr_cell.item.type == 3 and next_cell.item.type in [0, 1]:
@@ -175,7 +175,7 @@ func slide_down(curr_cell: TileCell) -> void:
 		var next_cell: TileCell = curr_cell.up
 		while next_cell.up != null and next_cell.item == null:
 			next_cell = next_cell.up
-		if next_cell.item != null:
+		if next_cell.item != null and next_cell.item.movable:
 			next_cell.item.reparent(curr_cell)
 			curr_cell.item = next_cell.item
 			next_cell.item = null

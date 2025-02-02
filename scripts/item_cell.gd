@@ -54,6 +54,7 @@ func setup(_type : int):
 			unit_sprite.visible = false
 			item_sprite.visible = false
 			box_sprite.visible = true
+			movable = false
 			show_hp = false
 		3 : 
 			print('Item')
