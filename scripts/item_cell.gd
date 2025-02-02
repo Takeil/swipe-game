@@ -59,13 +59,14 @@ func setup(_type : int):
 			shield = 2
 			print('Friend')
 		1 : 
-			health = randi_range(1, 3)
-			damage = randi_range(1, 3)
+			var highest = Global.get_highest_ally_stats()
+			health = randi_range(1, highest)
+			damage = randi_range(1, highest)
 			shield = randi_range(1, health)
 			print('Enemy')
 			modulate = Color(randf(), randf(), randf(), 1.0)
 		2 : 
-			health = 2
+			health = 3
 			damage = 0
 			shield = 0
 			print('Box')
@@ -82,7 +83,7 @@ func setup(_type : int):
 			item_sprite_visual.frame = item_type
 			item_label.text = '+' + str(item_value)
 		4 : 
-			health = 3
+			health = 5
 			damage = 0
 			shield = 0
 			print('Immovable Object')
@@ -92,11 +93,11 @@ func setup(_type : int):
 	if show_hp:
 		update_hp_def()
 
-func show_type(type : int):
-	unit_sprite.visible = type in [0, 1]
-	box_sprite.visible = type == 2
-	item_sprite.visible = type == 3
-	immovable_sprite.visible = type == 4
+func show_type(_type : int):
+	unit_sprite.visible = _type in [0, 1]
+	box_sprite.visible = _type == 2
+	item_sprite.visible = _type == 3
+	immovable_sprite.visible = _type == 4
 
 func _process(delta: float) -> void:
 	if position != Vector2.ZERO:
