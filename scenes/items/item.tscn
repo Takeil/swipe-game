@@ -55,7 +55,7 @@ animations = [{
 "texture": ExtResource("3_rhwns")
 }],
 "loop": true,
-"name": &"default",
+"name": &"tree",
 "speed": 5.0
 }]
 
@@ -76,6 +76,7 @@ autoplay = "default"
 [node name="ImmovableSprite" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_p4cre")
+animation = &"tree"
 
 [node name="ItemSprite" type="Node2D" parent="."]
 

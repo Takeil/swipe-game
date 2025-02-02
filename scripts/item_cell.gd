@@ -66,6 +66,7 @@ func setup(_type : int):
 			damage = 0
 			shield = 0
 			print('Item')
+			movable = false
 			show_hp = false
 		4 : 
 			health = 3
