@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl7ex0ni1wl18"]
+[gd_scene load_steps=6 format=3 uid="uid://cl7ex0ni1wl18"]
 
 [ext_resource type="Script" path="res://scripts/game_controller.gd" id="1_4nby3"]
 [ext_resource type="PackedScene" uid="uid://dfel4m5xl4h5y" path="res://scenes/cell.tscn" id="3_fgufg"]
 [ext_resource type="PackedScene" uid="uid://beb6kgvph1drn" path="res://scenes/items/item.tscn" id="4_oka2a"]
+[ext_resource type="Texture2D" uid="uid://0me4y6br6jik" path="res://assets/images/1px.png" id="4_rkayf"]
+[ext_resource type="FontFile" uid="uid://defkkrgwvgwd7" path="res://assets/fonts/QuinqueFive.ttf" id="5_wuuiv"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(45, 45)
@@ -180,10 +182,40 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -45.0
-offset_top = -45.0
+offset_top = -80.0
 offset_right = 45.0
-offset_bottom = 45.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -55.0
+offset_right = -7.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rkayf")
+
+[node name="ScoreLabel" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_wuuiv")
+theme_override_font_sizes/font_size = 5
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
