@@ -46,9 +46,9 @@ func spawn_item(type: int = 999, override : bool = false) -> void:
 	
 	if type == 999:
 		var chance = randi_range(1, 100)
-		if chance <= 60:
+		if chance <= 50:
 			type = 1
-		elif chance <= 75:
+		elif chance <= 60:
 			type = 2
 		elif chance <= 90:
 			type = 3

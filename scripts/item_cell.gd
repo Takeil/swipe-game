@@ -2,7 +2,7 @@ extends Node2D
 
 class_name ItemCell
 
-const MAX_HP: int = 10
+const MAX_HP: int = 5
 
 @export var movable: bool = true
 @export var show_hp: bool = true
@@ -15,7 +15,6 @@ var hp_bar : Control = null
 var df_bar : Control = null
 
 var at_bar1 : Control = null
-var at_bar2 : Control = null
 
 var unit_sprite: AnimatedSprite2D = null
 var box_sprite: AnimatedSprite2D = null
@@ -23,7 +22,9 @@ var immovable_sprite : AnimatedSprite2D = null
 var item_sprite: Node2D = null
 
 var item_sprite_visual : AnimatedSprite2D = null
-var item_label : Label
+var item_label : Label = null
+
+var animation_player : AnimationPlayer = null
 
 var damaged_by: Array[ItemCell] = []
 var type = 0
@@ -33,11 +34,12 @@ var item_value = 0
 @onready var pix = preload("res://scenes/misc/1px_texturerect.tscn")
 
 func setup(_type : int):
+	animation_player = $AnimationPlayer
+	
 	hp_bar = $Control/HPBarContainer
 	df_bar = $Control/DFBarContainer
 	
 	at_bar1 = $Control/ATBarContainer
-	at_bar2 = $Control/ATBarContainer2
 	
 	unit_sprite = $UnitSprite
 	box_sprite = $BoxSprite
@@ -51,6 +53,8 @@ func setup(_type : int):
 	
 	type = _type
 	show_type(_type)
+	
+	animation_player.play('spawn-in')
 	
 	match _type:
 		0 : 
@@ -79,7 +83,7 @@ func setup(_type : int):
 			movable = false
 			show_hp = false
 			item_type = randi_range(0, 2)
-			item_value = randi_range(1, 3)
+			item_value = randi_range(1, 2)
 			item_sprite_visual.frame = item_type
 			item_label.text = '+' + str(item_value)
 		4 : 
@@ -133,7 +137,6 @@ func update_hp_def() -> void:
 	Global.delete_children(df_bar)
 	
 	Global.delete_children(at_bar1)
-	Global.delete_children(at_bar2)
 	
 	for _i in health:
 		Global.instantiate_and_parent(pix, hp_bar)
@@ -143,7 +146,6 @@ func update_hp_def() -> void:
 	
 	for _i in damage:
 		Global.instantiate_and_parent(pix, at_bar1)
-		Global.instantiate_and_parent(pix, at_bar2)
 
 func reset_damaged_by() -> void:
 	damaged_by.clear()
@@ -156,6 +158,11 @@ func damage_by_enemy_and_health_check(damaging_cell: ItemCell) -> bool:
 		return true
 	
 	damaged_by.append(damaging_cell)
+	
+	if damaging_cell.type in [0, 1] and type != 3:
+		damaging_cell.unit_sprite.play("attack")
+		if not damaging_cell.unit_sprite.animation_finished.is_connected(damaging_cell.on_attack_animation_finished):
+			damaging_cell.unit_sprite.animation_finished.connect(damaging_cell.on_attack_animation_finished.bind(damaging_cell))
 	
 	var excess_damage: int = 0
 	shield -= damaging_cell.damage
@@ -170,3 +177,17 @@ func damage_by_enemy_and_health_check(damaging_cell: ItemCell) -> bool:
 		update_hp_def()
 	
 	return health > 0
+
+func on_attack_animation_finished(damaging_cell: ItemCell):
+	if damaging_cell and damaging_cell.unit_sprite:
+		damaging_cell.unit_sprite.play("idle")
+		damaging_cell.unit_sprite.animation_finished.disconnect(damaging_cell.on_attack_animation_finished)
+
+func die():
+	unit_sprite.play("die")
+	if unit_sprite.animation_finished.is_connected(_on_death_animation_finished) == false:
+		unit_sprite.animation_finished.connect(_on_death_animation_finished)
+
+func _on_death_animation_finished():
+	unit_sprite.animation_finished.disconnect(_on_death_animation_finished)
+	queue_free()

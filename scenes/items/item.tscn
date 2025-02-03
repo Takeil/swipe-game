@@ -1,27 +1,120 @@
-[gd_scene load_steps=17 format=3 uid="uid://beb6kgvph1drn"]
+[gd_scene load_steps=27 format=3 uid="uid://beb6kgvph1drn"]
 
 [ext_resource type="Script" path="res://scripts/item_cell.gd" id="1_qktp4"]
-[ext_resource type="Texture2D" uid="uid://0uln8yotally" path="res://assets/sprites/base_character.png" id="2_ybu6k"]
+[ext_resource type="Texture2D" uid="uid://p42oonrpyk1s" path="res://assets/sprites/penguin.png" id="2_48e77"]
 [ext_resource type="Texture2D" uid="uid://bvyjsyhnvnp7a" path="res://assets/sprites/Tree.png" id="3_rhwns"]
 [ext_resource type="Texture2D" uid="uid://ul2c0a5agolm" path="res://assets/sprites/Items.png" id="4_lq8qn"]
 [ext_resource type="FontFile" uid="uid://boemkey51kyvm" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk.ttf" id="5_xm4v2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ch2bg"]
-atlas = ExtResource("2_ybu6k")
+[sub_resource type="Animation" id="Animation_0431l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s8led"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_axxal"]
+resource_name = "spawn-in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_82jwj"]
+_data = {
+"RESET": SubResource("Animation_0431l"),
+"idle": SubResource("Animation_s8led"),
+"spawn-in": SubResource("Animation_axxal")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wakvs"]
+atlas = ExtResource("2_48e77")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmprq"]
+atlas = ExtResource("2_48e77")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinai"]
+atlas = ExtResource("2_48e77")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye7v2"]
+atlas = ExtResource("2_48e77")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqoki"]
+atlas = ExtResource("2_48e77")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5mnk"]
+atlas = ExtResource("2_48e77")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmxeq"]
+atlas = ExtResource("2_48e77")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_id14r"]
-atlas = ExtResource("2_ybu6k")
+[sub_resource type="AtlasTexture" id="AtlasTexture_am1eo"]
+atlas = ExtResource("2_48e77")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_23m3u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ch2bg")
+"texture": SubResource("AtlasTexture_wakvs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_id14r")
+"texture": SubResource("AtlasTexture_mmprq")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye7v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqoki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5mnk")
+}],
+"loop": false,
+"name": &"die",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmxeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am1eo")
 }],
 "loop": true,
 "name": &"idle",
@@ -91,7 +184,13 @@ animations = [{
 [node name="Item" type="Node2D"]
 script = ExtResource("1_qktp4")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_82jwj")
+}
+
 [node name="UnitSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_23m3u")
 animation = &"idle"
 autoplay = "idle"
@@ -147,6 +246,7 @@ offset_right = 7.0
 offset_bottom = 7.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="HPBarContainer" type="HBoxContainer" parent="Control"]
 modulate = Color(0.117647, 0.737255, 0.45098, 1)
@@ -155,8 +255,8 @@ layout_direction = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 2.0
-offset_right = -2.0
+offset_left = 1.0
+offset_right = -8.0
 offset_bottom = 1.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
@@ -168,39 +268,22 @@ layout_direction = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 2.0
-offset_right = -2.0
+offset_left = 1.0
+offset_right = -8.0
 offset_bottom = 1.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="ATBarContainer" type="VBoxContainer" parent="Control"]
+[node name="ATBarContainer" type="HBoxContainer" parent="Control"]
 modulate = Color(0.431373, 0.152941, 0.152941, 1)
 custom_minimum_size = Vector2(1, 0)
 layout_direction = 1
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 2.0
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/separation = 0
-alignment = 2
-
-[node name="ATBarContainer2" type="VBoxContainer" parent="Control"]
-modulate = Color(0.431373, 0.152941, 0.152941, 1)
-custom_minimum_size = Vector2(1, 0)
-layout_direction = 1
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_top = 2.0
-offset_right = 1.0
-offset_bottom = -2.0
-grow_vertical = 2
+offset_left = 8.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
 theme_override_constants/separation = 0
 alignment = 2

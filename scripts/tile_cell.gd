@@ -63,7 +63,7 @@ func slide_right(curr_cell: TileCell) -> void:
 				curr_cell.left.set_item(next_cell.item)
 				next_cell.clear_item()
 			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.queue_free()
+				old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.left
 		while next_cell.left != null and next_cell.item == null:
@@ -101,7 +101,7 @@ func slide_left(curr_cell: TileCell) -> void:
 				curr_cell.right.set_item(next_cell.item)
 				next_cell.clear_item()
 			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.queue_free()
+				old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.right
 		while next_cell.right != null and next_cell.item == null:
@@ -138,7 +138,7 @@ func slide_up(curr_cell: TileCell) -> void:
 				curr_cell.down.set_item(next_cell.item)
 				next_cell.clear_item()
 			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.queue_free()
+				old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.down
 		while next_cell.down != null and next_cell.item == null:
@@ -174,7 +174,7 @@ func slide_down(curr_cell: TileCell) -> void:
 				curr_cell.up.set_item(next_cell.item)
 				next_cell.clear_item()
 			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.queue_free()
+				old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.up
 		while next_cell.up != null and next_cell.item == null:
