@@ -1,20 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl7ex0ni1wl18"]
+[gd_scene load_steps=10 format=3 uid="uid://cl7ex0ni1wl18"]
 
+[ext_resource type="Script" path="res://scenes/ui_controller.gd" id="1_0lwv8"]
 [ext_resource type="Script" path="res://scripts/game_controller.gd" id="1_4nby3"]
 [ext_resource type="PackedScene" uid="uid://dfel4m5xl4h5y" path="res://scenes/cell.tscn" id="3_fgufg"]
+[ext_resource type="FontFile" uid="uid://dpu5a0gppjrth" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk_Bold.ttf" id="4_f33dw"]
 [ext_resource type="PackedScene" uid="uid://beb6kgvph1drn" path="res://scenes/items/item.tscn" id="4_oka2a"]
 [ext_resource type="Texture2D" uid="uid://0me4y6br6jik" path="res://assets/images/1px.png" id="4_rkayf"]
-[ext_resource type="FontFile" uid="uid://defkkrgwvgwd7" path="res://assets/fonts/QuinqueFive.ttf" id="5_wuuiv"]
+[ext_resource type="FontFile" uid="uid://boemkey51kyvm" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk.ttf" id="7_m7kfl"]
+[ext_resource type="Texture2D" uid="uid://dljxp23xlhup3" path="res://assets/images/Crown.png" id="8_338ae"]
+[ext_resource type="FontFile" uid="uid://dj7lhv27ccb2o" path="res://assets/fonts/6x6-pixel-font.ttf" id="9_j1p7c"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(45, 45)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("tiles")]
+[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("tiles", "score_label", "ui_controller")]
 script = ExtResource("1_4nby3")
 tiles = NodePath("../Tiles")
 item_prefab = ExtResource("4_oka2a")
+score_label = NodePath("../Control/TextureRect/ScoreLabel")
+ui_controller = NodePath("../UI")
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -198,24 +204,119 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 7.0
-offset_top = -55.0
+offset_top = -63.0
 offset_right = -7.0
-offset_bottom = -40.0
+offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_rkayf")
 
+[node name="CrownRect" type="TextureRect" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_right = 5.0
+offset_bottom = 10.0
+grow_horizontal = 2
+texture = ExtResource("8_338ae")
+
 [node name="ScoreLabel" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_j1p7c")
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -36.0
+offset_right = -6.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_m7kfl")
+theme_override_font_sizes/font_size = 4
+vertical_alignment = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_0lwv8")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundOverlay" type="TextureRect" parent="UI/Control"]
+self_modulate = Color(1, 1, 1, 0.156863)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_wuuiv")
-theme_override_font_sizes/font_size = 5
-text = "1"
+texture = ExtResource("4_rkayf")
+
+[node name="GameOverPanel" type="Control" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="UI/Control/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = 43.0
+offset_right = -15.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_f33dw")
+theme_override_font_sizes/font_size = 4
+text = "Restart"
+
+[node name="Label" type="Label" parent="UI/Control/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_j1p7c")
+theme_override_font_sizes/font_size = 8
+text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="UI/Control/GameOverPanel/RestartButton" to="UI" method="_on_restart_button_pressed"]

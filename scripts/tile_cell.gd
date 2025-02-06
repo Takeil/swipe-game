@@ -62,8 +62,10 @@ func slide_right(curr_cell: TileCell) -> void:
 				next_cell.item.reparent(curr_cell.left)
 				curr_cell.left.set_item(next_cell.item)
 				next_cell.clear_item()
-			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.die()
+			if old_curr_item.alive == true and old_curr_item.type != 3:
+				if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
+					curr_cell.clear_item()
+					old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.left
 		while next_cell.left != null and next_cell.item == null:
@@ -100,8 +102,10 @@ func slide_left(curr_cell: TileCell) -> void:
 				next_cell.item.reparent(curr_cell.right)
 				curr_cell.right.set_item(next_cell.item)
 				next_cell.clear_item()
-			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.die()
+			if old_curr_item.alive == true and old_curr_item.type != 3:
+				if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
+					curr_cell.clear_item()
+					old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.right
 		while next_cell.right != null and next_cell.item == null:
@@ -137,8 +141,10 @@ func slide_up(curr_cell: TileCell) -> void:
 				next_cell.item.reparent(curr_cell.down)
 				curr_cell.down.set_item(next_cell.item)
 				next_cell.clear_item()
-			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.die()
+			if old_curr_item.alive == true and old_curr_item.type != 3:
+				if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
+					curr_cell.clear_item()
+					old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.down
 		while next_cell.down != null and next_cell.item == null:
@@ -173,8 +179,10 @@ func slide_down(curr_cell: TileCell) -> void:
 				next_cell.item.reparent(curr_cell.up)
 				curr_cell.up.set_item(next_cell.item)
 				next_cell.clear_item()
-			if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
-				old_curr_item.die()
+			if old_curr_item.alive == true and old_curr_item.type != 3:
+				if !old_curr_item.damage_by_enemy_and_health_check(old_next_item):
+					curr_cell.clear_item()
+					old_curr_item.die()
 	else:
 		var next_cell: TileCell = curr_cell.up
 		while next_cell.up != null and next_cell.item == null:

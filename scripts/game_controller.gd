@@ -4,19 +4,40 @@ class_name GameController
 
 @export var tiles : Node2D
 @export var item_prefab : PackedScene
-var cells : Array[Node2D]
+@export var score_label : Label
+@export var ui_controller : UIController
 
 static var Instance: GameController
 static var ticker : int
+
+var cells : Array[Node2D]
+var score = 0
 var spawning = false
 
 signal swipe
+signal scored(score)
 
 func _ready() -> void:
 	Instance = self
 	
 	for child in tiles.get_children():
 		cells.append(child)
+	
+	spawn_item(0, true)
+	spawn_item(1, true)
+	spawn_item(4, true)
+
+func restart() -> void:
+	score = 0
+	score_label.text = '0'
+	ui_controller.set_game_over(false)
+	
+	for cell in cells:
+		if cell.get_child_count() == 2:
+			cell.clear_item()
+			cell.get_child(1).queue_free()
+	
+	await get_tree().create_timer(0.2).timeout
 	
 	spawn_item(0, true)
 	spawn_item(1, true)
@@ -29,17 +50,42 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('right'):
 		swipe.emit('Right')
 		spawn_item()
+		game_over_check()
 	if Input.is_action_just_pressed('left'):
 		swipe.emit('Left')
 		spawn_item()
+		game_over_check()
 	if Input.is_action_just_pressed('up'):
 		swipe.emit('Up')
 		spawn_item()
+		game_over_check()
 	if Input.is_action_just_pressed('down'):
 		swipe.emit('Down')
 		spawn_item()
+		game_over_check()
+
+func game_over_check():
+	var has_friendly = false
+	
+	for cell in cells:
+		if cell.item:
+			if cell.item.type == 0:
+				has_friendly = true
+	
+	if !has_friendly:
+		ui_controller.set_game_over(true)
+		return
 
 func spawn_item(type: int = 999, override : bool = false) -> void:
+	var is_full = true
+	
+	for cell in cells:
+		if cell.item == null and cell.get_child_count() == 1:
+			is_full = false
+	
+	if is_full:
+		print('full')
+		return
 	
 	if randi_range(1, 100) <= 30 and !override:  # 70% chance to spawn
 		return
@@ -76,3 +122,9 @@ func spawn_item(type: int = 999, override : bool = false) -> void:
 	instance.setup(type)
 	s.set_item(instance)
 	spawning = false
+
+func add_score(value : int):
+	score += value
+	score_label.text = str(score)
+	scored.emit(score)
+	pass

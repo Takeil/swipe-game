@@ -14,7 +14,7 @@ var health: int = 0
 var hp_bar : Control = null
 var df_bar : Control = null
 
-var at_bar1 : Control = null
+var at_bar : Control = null
 
 var unit_sprite: AnimatedSprite2D = null
 var box_sprite: AnimatedSprite2D = null
@@ -31,6 +31,8 @@ var type = 0
 var item_type = 0
 var item_value = 0
 
+var alive = true
+
 @onready var pix = preload("res://scenes/misc/1px_texturerect.tscn")
 
 func setup(_type : int):
@@ -39,7 +41,7 @@ func setup(_type : int):
 	hp_bar = $Control/HPBarContainer
 	df_bar = $Control/DFBarContainer
 	
-	at_bar1 = $Control/ATBarContainer
+	at_bar = $Control/ATBarContainer
 	
 	unit_sprite = $UnitSprite
 	box_sprite = $BoxSprite
@@ -61,25 +63,21 @@ func setup(_type : int):
 			health = 2
 			damage = 1
 			shield = 2
-			print('Friend')
 		1 : 
 			var highest = Global.get_highest_ally_stats()
 			health = randi_range(1, highest)
-			damage = randi_range(1, highest)
+			damage = randi_range(1, health)
 			shield = randi_range(1, health)
-			print('Enemy')
 			modulate = Color(randf(), randf(), randf(), 1.0)
 		2 : 
 			health = 3
 			damage = 0
 			shield = 0
-			print('Box')
 			show_hp = false
 		3 : 
 			health = 0
 			damage = 0
 			shield = 0
-			print('Item')
 			movable = false
 			show_hp = false
 			item_type = randi_range(0, 2)
@@ -90,12 +88,11 @@ func setup(_type : int):
 			health = 5
 			damage = 0
 			shield = 0
-			print('Immovable Object')
 			movable = false
 			show_hp = false
 	
 	if show_hp:
-		update_hp_def()
+		update_bars()
 
 func show_type(_type : int):
 	unit_sprite.visible = _type in [0, 1]
@@ -120,8 +117,8 @@ func get_item(_item_type, _item_value):
 	match _item_type:
 		0:
 			damage += _item_value
-			if damage >= MAX_HP:
-				damage = MAX_HP
+			if damage >= health:
+				damage = health
 		1:
 			shield += _item_value
 			if shield >= health:
@@ -130,13 +127,13 @@ func get_item(_item_type, _item_value):
 			health += _item_value
 			if health >= MAX_HP:
 				health = MAX_HP
-	update_hp_def()
+	update_bars()
 
-func update_hp_def() -> void:
+func update_bars() -> void:
 	Global.delete_children(hp_bar)
 	Global.delete_children(df_bar)
 	
-	Global.delete_children(at_bar1)
+	Global.delete_children(at_bar)
 	
 	for _i in health:
 		Global.instantiate_and_parent(pix, hp_bar)
@@ -145,12 +142,16 @@ func update_hp_def() -> void:
 		Global.instantiate_and_parent(pix, df_bar)
 	
 	for _i in damage:
-		Global.instantiate_and_parent(pix, at_bar1)
+		Global.instantiate_and_parent(pix, at_bar)
 
 func reset_damaged_by() -> void:
 	damaged_by.clear()
 
 func damage_by_enemy_and_health_check(damaging_cell: ItemCell) -> bool:
+	
+	if !alive: 
+		return false
+	
 	if damaged_by.has(damaging_cell):
 		return true
 	
@@ -173,8 +174,14 @@ func damage_by_enemy_and_health_check(damaging_cell: ItemCell) -> bool:
 	
 	health += excess_damage
 	
+	if damage > health:
+		damage = health
+	
 	if show_hp:
-		update_hp_def()
+		update_bars()
+	
+	if type == 1 and damaging_cell.type == 0:
+		GameController.Instance.add_score(1 * damaging_cell.damage)
 	
 	return health > 0
 
@@ -184,8 +191,11 @@ func on_attack_animation_finished(damaging_cell: ItemCell):
 		damaging_cell.unit_sprite.animation_finished.disconnect(damaging_cell.on_attack_animation_finished)
 
 func die():
+	if !alive: return
+	alive = false
+	
 	unit_sprite.play("die")
-	if unit_sprite.animation_finished.is_connected(_on_death_animation_finished) == false:
+	if not unit_sprite.animation_finished.is_connected(_on_death_animation_finished):
 		unit_sprite.animation_finished.connect(_on_death_animation_finished)
 
 func _on_death_animation_finished():
