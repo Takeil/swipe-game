@@ -42,33 +42,30 @@ func restart() -> void:
 	spawn_item(0, true)
 	spawn_item(1, true)
 	spawn_item(4, true)
-
+	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		spawn_item(999,true)
-	
+		
 	if Input.is_action_just_pressed('right'):
-		swipe.emit('Right')
-		spawn_item()
-		game_over_check()
-	if Input.is_action_just_pressed('left'):
-		swipe.emit('Left')
-		spawn_item()
-		game_over_check()
-	if Input.is_action_just_pressed('up'):
-		swipe.emit('Up')
-		spawn_item()
-		game_over_check()
-	if Input.is_action_just_pressed('down'):
-		swipe.emit('Down')
-		spawn_item()
-		game_over_check()
+		handle_swipe('Right')
+	elif Input.is_action_just_pressed('left'):
+		handle_swipe('Left')
+	elif Input.is_action_just_pressed('up'):
+		handle_swipe('Up')
+	elif Input.is_action_just_pressed('down'):
+		handle_swipe('Down')
+
+func handle_swipe(direction: String) -> void:
+	swipe.emit(direction)
+	spawn_item()
+	game_over_check()
 
 func game_over_check():
 	var has_friendly = false
 	
 	for cell in cells:
-		if cell.item:
+		if cell.item != null:
 			if cell.item.type == 0:
 				has_friendly = true
 	
