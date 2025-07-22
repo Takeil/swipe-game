@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1kn7cg3pfxjb"]
+
+[ext_resource type="Script" uid="uid://dlvt807v4lu5w" path="res://scripts/tiles/enemy_tile.gd" id="1_6ijqa"]
+[ext_resource type="Texture2D" uid="uid://c6h8yr21m8rl4" path="res://assets/images/tiles/enemy.png" id="2_qiepa"]
+[ext_resource type="PackedScene" uid="uid://daq1bme76oqim" path="res://effects/explosion.tscn" id="3_r3hk6"]
+
+[node name="EnemyTile" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -74.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+script = ExtResource("1_6ijqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_qiepa")
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("3_r3hk6")]
+position = Vector2(8, 8)
+amount = 50
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+initial_velocity_min = 5.0
+initial_velocity_max = 40.0

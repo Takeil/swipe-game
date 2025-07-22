@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgofw7qm5b67u"]
+
+[ext_resource type="PackedScene" uid="uid://18lowxoha1j7" path="res://scenes/main.tscn" id="1_b6lu8"]
+
+[node name="Mainer" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Main" parent="." instance=ExtResource("1_b6lu8")]
+offset_left = -45.0
+offset_top = -80.0
+offset_right = 45.0
+offset_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

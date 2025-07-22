@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cudfftv57hor8"]
+
+[ext_resource type="Texture2D" uid="uid://bb1n5ronr27tq" path="res://assets/images/tiles/Box.png" id="1_b7y5y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4xtyb"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_3oo6d"]
+offsets = PackedFloat32Array(0.847518, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+z_index = 6
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_4xtyb")
+emitting = false
+amount = 5
+texture = ExtResource("1_b7y5y")
+one_shot = true
+explosiveness = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 30.0
+damping_min = 50.0
+damping_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_3oo6d")
+anim_offset_min = 0.5
+anim_offset_max = 1.0

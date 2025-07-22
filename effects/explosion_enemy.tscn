@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5lrwnlodea3a"]
+
+[sub_resource type="Gradient" id="Gradient_3oo6d"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_17npe"]
+offsets = PackedFloat32Array(0, 0.358156, 0.702128, 1)
+colors = PackedColorArray(0.431373, 0.152941, 0.152941, 1, 0.701961, 0.219608, 0.192157, 1, 0.917647, 0.309804, 0.211765, 1, 0.960784, 0.490196, 0.290196, 1)
+
+[node name="ExplosionEnemy" type="CPUParticles2D"]
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 40.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_3oo6d")
+color_initial_ramp = SubResource("Gradient_17npe")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwlb3uemoeu88"]
+
+[ext_resource type="Script" uid="uid://dtjdoyu8gbl5e" path="res://scripts/tiles/immovable_tile.gd" id="1_nqw6f"]
+[ext_resource type="Texture2D" uid="uid://i81vq0gugcq7" path="res://assets/images/tiles/block.png" id="2_frohr"]
+
+[node name="ImmovableTile" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -74.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+script = ExtResource("1_nqw6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_frohr")
+hframes = 3

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmq0c2najb5ta"]
+
+[ext_resource type="Script" path="res://scripts/tiles/bomb.gd" id="1_v2w7m"]
+[ext_resource type="Texture2D" uid="uid://bspiv7bdhabc0" path="res://assets/images/icon.svg" id="2_10t1f"]
+
+[node name="Bomb" type="Control"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -74.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2w7m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_10t1f")
+expand_mode = 1

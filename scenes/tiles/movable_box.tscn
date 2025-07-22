@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d53kvs7t0y6p"]
+
+[ext_resource type="Script" uid="uid://dspplv00lgla6" path="res://scripts/tiles/movable_box.gd" id="1_63mlj"]
+[ext_resource type="Texture2D" uid="uid://bb1n5ronr27tq" path="res://assets/images/tiles/Box.png" id="2_4xtyb"]
+
+[node name="MovableBox" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -74.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+script = ExtResource("1_63mlj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_4xtyb")
+hframes = 3
