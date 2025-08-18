@@ -28,6 +28,8 @@ var original_position = Vector2(0, 0)
 
 @export var GO_score_label : Label
 
+var multilplier = 1
+
 func _ready():
 	Instance = self
 	reset_score()
@@ -45,7 +47,7 @@ func reset_score():
 	crown_image.visible = false
 
 func add_score(amount: int):
-	score += amount
+	score += amount * multilplier
 	update_score()
 
 func add_damage(amount: int):

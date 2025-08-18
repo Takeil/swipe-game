@@ -15,4 +15,6 @@ func die(_attacker):
 	particles.global_position = global_position + Vector2(8, 8)
 	particles.emitting = true
 	
+	Board.Instance.on_tile_hit()
+	
 	super(_attacker)

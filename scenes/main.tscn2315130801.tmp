@@ -1,7 +1,7 @@
 [gd_scene load_steps=67 format=3 uid="uid://18lowxoha1j7"]
 
 [ext_resource type="Texture2D" uid="uid://c1b4q02x440gr" path="res://assets/images/Tile.png" id="1_jqchq"]
-[ext_resource type="Script" uid="uid://5rdbfr4d4nm8" path="res://scripts/board.gd" id="1_n7xhc"]
+[ext_resource type="Script" path="res://scripts/board.gd" id="1_n7xhc"]
 [ext_resource type="Script" uid="uid://beigsoiw2ap7s" path="res://scripts/ui_manager.gd" id="1_tlobp"]
 [ext_resource type="Script" uid="uid://c8eqb16yts8k5" path="res://addons/AdmobPlugin/Admob.gd" id="1_vxglm"]
 [ext_resource type="PackedScene" uid="uid://bjb5p2k2odyv3" path="res://scenes/tile.tscn" id="3_h5f58"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://scripts/volume.gd" id="7_trceg"]
 [ext_resource type="FontFile" uid="uid://dfl5rfbgsbq2g" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk_Round_Bold.ttf" id="7_umssr"]
 [ext_resource type="Texture2D" uid="uid://i1y88h0r4b3b" path="res://assets/images/Button.png" id="8_vxglm"]
-[ext_resource type="Script" uid="uid://c2sbigknf8ntr" path="res://scripts/score_manager.gd" id="9_5oeqt"]
+[ext_resource type="Script" path="res://scripts/score_manager.gd" id="9_5oeqt"]
 [ext_resource type="Texture2D" uid="uid://cnyejcwha808" path="res://assets/images/Checked.png" id="10_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://vn3dtusk6vig" path="res://assets/images/Crown.png" id="10_xe1us"]
 [ext_resource type="Texture2D" uid="uid://b7jc7272t68v8" path="res://assets/images/Unchecked.png" id="11_0ld40"]
@@ -209,7 +209,7 @@ real_rewarded_id = "ca-app-pub-9959431207345046/7386833098"
 metadata/_custom_type_script = "uid://c8eqb16yts8k5"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(0.1, 0.4, 0.6, 1)
+self_modulate = Color(0.170626, 0.463, 0.644964, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -968,7 +968,7 @@ script = ExtResource("28_yq6so")
 position = Vector2(6, 0)
 texture = ExtResource("28_2f3dj")
 
-[node name="GameBoard" type="Control" parent="." node_paths=PackedStringArray("combo_label", "background_node")]
+[node name="GameBoard" type="Control" parent="."]
 z_index = 10
 layout_mode = 1
 anchors_preset = 8
@@ -984,8 +984,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n7xhc")
 tile_scene = ExtResource("3_h5f58")
-combo_label = NodePath("../ScoreManager/ComboLabel")
-background_node = NodePath("../TextureRect")
 
 [node name="SpawnManager" type="Control" parent="."]
 layout_mode = 1
@@ -1015,9 +1013,9 @@ GO_score_label = NodePath("../UI/GameOverScreen/BG2/FinalScore")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 4.0
+offset_left = 8.0
 offset_top = 23.0
-offset_right = -3.0
+offset_right = -7.0
 offset_bottom = 32.0
 grow_horizontal = 2
 pivot_offset = Vector2(37, 4)
@@ -1058,26 +1056,6 @@ offset_right = 5.0
 offset_bottom = 22.0
 grow_horizontal = 2
 texture = ExtResource("10_xe1us")
-
-[node name="ComboLabel" type="Label" parent="ScoreManager"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -49.0
-offset_right = -3.0
-offset_bottom = -43.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("13_a8y0u")
-theme_override_font_sizes/font_size = 4
-horizontal_alignment = 2
-vertical_alignment = 1
 
 [connection signal="initialization_completed" from="Admob" to="UI" method="_on_admob_initialization_completed"]
 [connection signal="rewarded_ad_user_earned_reward" from="Admob" to="UI" method="_on_admob_rewarded_ad_user_earned_reward"]

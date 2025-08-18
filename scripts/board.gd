@@ -5,6 +5,8 @@ class_name Board
 const GRID_SIZE = 5
 const tile_size = 17
 @export var tile_scene: PackedScene  # Drag `Tile.tscn` here in the Inspector
+@export var combo_label : Label
+@export var background_node : TextureRect
 @onready var spawn_manager = $"../SpawnManager"
 var grid = []
 
@@ -13,10 +15,20 @@ var startPos: Vector2
 var curPos: Vector2
 var swiping = false
 var threshold = 100
+var combo_count = 0
+var combo_timer = 0.0
+var combo_timeout = 1.5 #seconds
 
 var has_control = true
 
 static var Instance : Board
+
+var background_colors = [
+	Color(0.1, 0.4, 0.6), # default
+	Color(0.2, 0.5, 0.5), # cool blue
+	Color(0.2, 0.4, 0.3), # green
+	Color(0.5, 0.2, 0.2), # red
+]
 
 func _ready():
 	Instance = self
@@ -26,6 +38,16 @@ func _process(_delta: float) -> void:
 	if !has_control:
 		swiping = false
 		return
+	
+	if combo_count > 0:
+		combo_timer -= _delta
+		if combo_timer <= 0:
+			combo_count = 0
+			change_background(background_colors[0])
+		if combo_count == 0: 
+			ScoreManager.Instance.multilplier = 1 
+		else:
+			ScoreManager.Instance.multilplier = combo_count
 	
 	if Input.is_action_just_pressed("press"):
 		if !swiping:
@@ -67,6 +89,8 @@ func reset_board(reset_score = true):
 	spawn_tile("immovable")
 	update_visuals()
 	toggle_control(true)
+	combo_count = 0
+	change_background(background_colors[0])
 	if (reset_score):
 		ScoreManager.Instance.reset_score()
 
@@ -333,6 +357,34 @@ func check_game_over():
 				break
 	if not player_exists:
 		game_over()
+
+func on_tile_hit():
+	combo_count += 1
+	combo_timer = combo_timeout
+
+	if combo_count > 1:
+		show_combo_text(combo_count)
+
+	check_combo_bonus(combo_count)
+
+func show_combo_text(count):
+	combo_label.text = "x" + str(count)
+	combo_label.modulate = Color(1, 0.8, 0)
+	var tween = create_tween()
+	tween.tween_property(combo_label, "modulate:a", 0, 0.2).set_delay(0.3)
+
+func check_combo_bonus(count):
+	if count == 5:
+		change_background(background_colors[1])
+	elif count == 10:
+		change_background(background_colors[2])
+	elif count == 15:
+		change_background(background_colors[3])
+
+func change_background(new_color):
+	if background_node:
+		var tween = create_tween()
+		tween.tween_property(background_node, "self_modulate", new_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func get_player_child():
 	for child in get_children():

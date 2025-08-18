@@ -35,12 +35,14 @@ func _on_restart_pressed():
 	if ADManager.Instance.has_ad:
 		curr_ads = curr_ads + 1
 		if curr_ads >= ADS_INTERVAL:
+			ad_loading.visible = true
 			if is_initialized:
-				ad_loading.visible = true
 				adMob.load_interstitial_ad()
 				await adMob.interstitial_ad_loaded
 				adMob.show_interstitial_ad()
-				ad_loading.visible = false
+			else:
+				print("Ad is not initialized")
+			ad_loading.visible = false
 			curr_ads = 0
 	
 	Board.Instance.reset_board()
@@ -57,13 +59,14 @@ func _close_settings_screen():
 	settings_screen.visible = false
 
 func _on_continue_button_pressed() -> void:
+	game_over_screen.visible = false
+	ad_loading.visible = true
+	
 	if is_initialized:
 		adMob.load_rewarded_ad()
 
 		var success := false
-		ad_loading.visible = true
 		await adMob.rewarded_ad_loaded
-		ad_loading.visible = false
 
 		if adMob.is_rewarded_ad_loaded():
 			adMob.show_rewarded_ad()
@@ -72,6 +75,9 @@ func _on_continue_button_pressed() -> void:
 		if not success:
 			print("Ad failed to load or show")
 			continue_game()
+	else:
+		print("Ad is not initialized")
+		continue_game()
 
 func _on_admob_initialization_completed(_status_data: InitializationStatus) -> void:
 	is_initialized = true
@@ -84,3 +90,4 @@ func continue_game():
 	toggle_game_over(false)
 	Board.Instance.continue_game()
 	continue_button.visible = false
+	ad_loading.visible = false
