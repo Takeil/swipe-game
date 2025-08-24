@@ -92,6 +92,7 @@ func reset_board(reset_score = true):
 	combo_count = 0
 	change_background(background_colors[0])
 	if (reset_score):
+		ScoreManager.Instance.multilplier = 1 
 		ScoreManager.Instance.reset_score()
 
 func continue_game():
