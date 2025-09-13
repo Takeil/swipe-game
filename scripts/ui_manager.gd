@@ -13,7 +13,6 @@ var is_initialized : bool = false
 
 static var Instance : UIManager
 
-var tries = 0
 const ADS_INTERVAL = 3
 var curr_ads = 0;
 
@@ -21,7 +20,10 @@ func _ready():
 	Instance = self
 	toggle_game_over(false)
 	restart_button.pressed.connect(_on_restart_pressed)
+	
 	adMob.initialize()
+	adMob.load_interstitial_ad()
+	adMob.load_rewarded_ad()
 
 func toggle_game_over(val = !game_over_screen.visible):
 	game_over_screen.visible = val
@@ -32,18 +34,18 @@ func _on_restart_pressed():
 	toggle_game_over(false)
 	settings_screen.visible = false
 	
-	if ADManager.Instance.has_ad:
+	if ADManager.Instance.has_ad and is_initialized:
 		curr_ads = curr_ads + 1
 		if curr_ads >= ADS_INTERVAL:
-			ad_loading.visible = true
-			if is_initialized:
-				adMob.load_interstitial_ad()
-				await adMob.interstitial_ad_loaded
-				adMob.show_interstitial_ad()
-			else:
-				print("Ad is not initialized")
-			ad_loading.visible = false
 			curr_ads = 0
+			ad_loading.visible = true
+			var success = await adMob.interstitial_ad_loaded.with_timeout(3.0)
+			if success and adMob.is_interstitial_ad_loaded():
+				adMob.show_interstitial_ad()
+				adMob.load_interstitial_ad()
+			else:
+				print("Ad failed to load or show")
+			ad_loading.visible = false
 	
 	Board.Instance.reset_board()
 	continue_button.visible = true
@@ -63,21 +65,19 @@ func _on_continue_button_pressed() -> void:
 	ad_loading.visible = true
 	
 	if is_initialized:
-		adMob.load_rewarded_ad()
+		var success = await adMob.rewarded_ad_loaded.with_timeout(3.0)
 
-		var success := false
-		await adMob.rewarded_ad_loaded
-
-		if adMob.is_rewarded_ad_loaded():
+		if success and adMob.is_rewarded_ad_loaded():
 			adMob.show_rewarded_ad()
-			success = true
-
-		if not success:
+			adMob.load_rewarded_ad()
+		else:
 			print("Ad failed to load or show")
 			continue_game()
 	else:
 		print("Ad is not initialized")
 		continue_game()
+	
+	ad_loading.visible = false
 
 func _on_admob_initialization_completed(_status_data: InitializationStatus) -> void:
 	is_initialized = true
