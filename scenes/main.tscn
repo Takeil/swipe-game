@@ -189,10 +189,6 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkpxi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0nq"]
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -976,7 +972,7 @@ script = ExtResource("28_yq6so")
 position = Vector2(6, 0)
 texture = ExtResource("28_2f3dj")
 
-[node name="GameBoard" type="Control" parent="." node_paths=PackedStringArray("combo_label", "background_node", "combo_bar")]
+[node name="GameBoard" type="Control" parent="." node_paths=PackedStringArray("combo_label", "background_node", "combo_bar", "combo_message_label")]
 z_index = 10
 layout_mode = 1
 anchors_preset = 8
@@ -995,6 +991,7 @@ tile_scene = ExtResource("3_h5f58")
 combo_label = NodePath("../ScoreManager/ComboLabel")
 background_node = NodePath("../TextureRect")
 combo_bar = NodePath("../ScoreManager/ProgressBar")
+combo_message_label = NodePath("../ScoreManager/ComboMessageLabel")
 
 [node name="SpawnManager" type="Control" parent="."]
 layout_mode = 1
@@ -1106,6 +1103,30 @@ theme_override_font_sizes/font_size = 4
 text = "x1"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="ComboMessageLabel" type="Label" parent="ScoreManager"]
+top_level = true
+z_index = 100
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -5.0
+offset_right = 45.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(45, 5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_nov50")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [connection signal="initialization_completed" from="Admob" to="UI" method="_on_admob_initialization_completed"]
 [connection signal="rewarded_ad_user_earned_reward" from="Admob" to="UI" method="_on_admob_rewarded_ad_user_earned_reward"]

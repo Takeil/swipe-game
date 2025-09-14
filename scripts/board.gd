@@ -8,6 +8,7 @@ const tile_size = 17
 @export var combo_label : Label
 @export var background_node : TextureRect
 @export var combo_bar : ProgressBar
+@export var combo_message_label : Label
 @onready var spawn_manager = $"../SpawnManager"
 var grid = []
 
@@ -25,14 +26,14 @@ var has_control = true
 static var Instance : Board
 
 var combo_milestones = {
-	0: {"color": Color(0.1, 0.4, 0.6)}, # default
-	5: { "color": Color(0.2, 0.5, 0.5)}, # blue-green
-	10: { "color": Color(0.2, 0.4, 0.3)}, # green
-	15: { "color": Color(0.7, 0.6, 0.3)}, # yellow
-	25: { "color": Color(0.8, 0.4, 0.2)}, # orange
-	50: { "color": Color(0.5, 0.2, 0.2)}, # red
-	75: { "color": Color(0.3, 0.2, 0.2)}, # maroon
-	100: { "color": Color(0.1, 0.1, 0.1)}, # black
+	0:   {"color": Color(0.1, 0.4, 0.6), "message": ""},             # default
+	10:  {"color": Color(0.2, 0.5, 0.5), "message": "NICE!"},        # blue-green
+	20:  {"color": Color(0.2, 0.4, 0.3), "message": "GREAT!"},       # green
+	30:  {"color": Color(0.4, 0.3, 0.6), "message": "AMAZING!"},     # violet
+	50:  {"color": Color(0.5, 0.3, 0.1), "message": "INSANE!"},      # orange
+	75:  {"color": Color(0.5, 0.2, 0.2), "message": "LEGENDARY!"},   # red
+	100: {"color": Color(0.3, 0.2, 0.2), "message": "GODLIKE!"},     # maroon
+	150: {"color": Color(0.1, 0.1, 0.1), "message": "UNSTOPPABLE!"}, # black
 }
 
 func _ready():
@@ -377,10 +378,9 @@ func check_game_over():
 func reset_combo_timer():
 	if combo_bar:
 		combo_bar.value = 1.0
-	
 
-func on_tile_hit():
-	combo_count += 1
+func on_tile_hit(hits = 1):
+	combo_count += hits
 	combo_timer = combo_timeout
 	
 	reset_combo_timer()
@@ -389,14 +389,33 @@ func on_tile_hit():
 func show_combo_text(count):
 	combo_label.text = "x" + str(count)
 
+func show_combo_message(text):
+	if text == "":
+		return
+	
+	combo_message_label.text = text
+	combo_message_label.modulate.a = 1.0
+	combo_message_label.scale = Vector2(0.5, 0.5)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(combo_message_label, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(combo_message_label, "modulate:a", 0.0, 0.5).set_delay(0.3)
+
+func play_combo_sound(count):
+	var audio = preload("res://assets/sounds/combo.wav")
+	Global.play_sound("Sound", audio)
+
 func check_combo_bonus(count):
 	if combo_milestones.has(count):
 		var milestone = combo_milestones[count]
 		change_background(milestone["color"])
+		show_combo_message(milestone["message"])
+		play_combo_sound(count)
 
 func change_background(new_color):
 	if background_node:
 		var tween = create_tween()
+		tween.tween_property(background_node, "self_modulate", Color(0.7, 0.7, 0.7), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property(background_node, "self_modulate", new_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func get_player_child():
