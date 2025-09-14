@@ -7,6 +7,7 @@ const tile_size = 17
 @export var tile_scene: PackedScene  # Drag `Tile.tscn` here in the Inspector
 @export var combo_label : Label
 @export var background_node : TextureRect
+@export var combo_bar : ProgressBar
 @onready var spawn_manager = $"../SpawnManager"
 var grid = []
 
@@ -23,12 +24,16 @@ var has_control = true
 
 static var Instance : Board
 
-var background_colors = [
-	Color(0.1, 0.4, 0.6), # default
-	Color(0.2, 0.5, 0.5), # cool blue
-	Color(0.2, 0.4, 0.3), # green
-	Color(0.5, 0.2, 0.2), # red
-]
+var combo_milestones = {
+	0: {"color": Color(0.1, 0.4, 0.6)}, # default
+	5: { "color": Color(0.2, 0.5, 0.5)}, # blue-green
+	10: { "color": Color(0.2, 0.4, 0.3)}, # green
+	15: { "color": Color(0.7, 0.6, 0.3)}, # yellow
+	25: { "color": Color(0.8, 0.4, 0.2)}, # orange
+	50: { "color": Color(0.5, 0.2, 0.2)}, # red
+	75: { "color": Color(0.3, 0.2, 0.2)}, # maroon
+	100: { "color": Color(0.1, 0.1, 0.1)}, # black
+}
 
 func _ready():
 	Instance = self
@@ -39,15 +44,22 @@ func _process(_delta: float) -> void:
 		swiping = false
 		return
 	
+	show_combo_text(combo_count)
 	if combo_count > 0:
 		combo_timer -= _delta
 		if combo_timer <= 0:
 			combo_count = 0
-			change_background(background_colors[0])
+			change_background(combo_milestones[0]["color"])
+			
 		if combo_count == 0: 
 			ScoreManager.Instance.multilplier = 1 
 		else:
 			ScoreManager.Instance.multilplier = combo_count
+		if combo_bar:
+			combo_bar.value = clamp(combo_timer / combo_timeout, 0.0, 1.0)
+	else:
+		if combo_timer:
+			combo_bar.value = 0.0
 	
 	if Input.is_action_just_pressed("press"):
 		if !swiping:
@@ -90,7 +102,7 @@ func reset_board(reset_score = true):
 	update_visuals()
 	toggle_control(true)
 	combo_count = 0
-	change_background(background_colors[0])
+	change_background(combo_milestones[0]["color"])
 	if (reset_score):
 		ScoreManager.Instance.multilplier = 1 
 		ScoreManager.Instance.reset_score()
@@ -340,8 +352,11 @@ func update_visuals():
 
 func on_swipe_complete():
 	update_visuals()
-	#if randi() % 100 < 70:
 	spawn_tile()
+	
+	if combo_count > 0 and combo_timer > 0:
+		combo_timer = min(combo_timeout, combo_timer + 0.3)
+	
 	await get_tree().create_timer(0.5).timeout
 	check_game_over()
 
@@ -359,28 +374,25 @@ func check_game_over():
 	if not player_exists:
 		game_over()
 
+func reset_combo_timer():
+	if combo_bar:
+		combo_bar.value = 1.0
+	
+
 func on_tile_hit():
 	combo_count += 1
 	combo_timer = combo_timeout
-
-	if combo_count > 1:
-		show_combo_text(combo_count)
-
+	
+	reset_combo_timer()
 	check_combo_bonus(combo_count)
 
 func show_combo_text(count):
 	combo_label.text = "x" + str(count)
-	combo_label.modulate = Color(1, 0.8, 0)
-	var tween = create_tween()
-	tween.tween_property(combo_label, "modulate:a", 0, 0.2).set_delay(0.3)
 
 func check_combo_bonus(count):
-	if count == 5:
-		change_background(background_colors[1])
-	elif count == 10:
-		change_background(background_colors[2])
-	elif count == 15:
-		change_background(background_colors[3])
+	if combo_milestones.has(count):
+		var milestone = combo_milestones[count]
+		change_background(milestone["color"])
 
 func change_background(new_color):
 	if background_node:

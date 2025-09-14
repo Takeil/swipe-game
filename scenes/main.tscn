@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://18lowxoha1j7"]
+[gd_scene load_steps=69 format=3 uid="uid://18lowxoha1j7"]
 
 [ext_resource type="Texture2D" uid="uid://c1b4q02x440gr" path="res://assets/images/Tile.png" id="1_jqchq"]
 [ext_resource type="Script" uid="uid://5rdbfr4d4nm8" path="res://scripts/board.gd" id="1_n7xhc"]
@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://c8eqb16yts8k5" path="res://addons/AdmobPlugin/Admob.gd" id="1_vxglm"]
 [ext_resource type="PackedScene" uid="uid://bjb5p2k2odyv3" path="res://scenes/tile.tscn" id="3_h5f58"]
 [ext_resource type="Texture2D" uid="uid://b4o2rwj685oea" path="res://assets/images/Settings.png" id="3_jbj1t"]
-[ext_resource type="Script" path="res://scripts/spawn_manager.gd" id="4_atok5"]
+[ext_resource type="Script" uid="uid://c8x5oojff3yal" path="res://scripts/spawn_manager.gd" id="4_atok5"]
 [ext_resource type="Texture2D" uid="uid://o8gy3ka0xhnb" path="res://assets/images/bg.png" id="4_jkv2x"]
 [ext_resource type="FontFile" uid="uid://c1ft3vr63grvk" path="res://assets/fonts/QuinqueFive.ttf" id="4_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bvr420td7gw1g" path="res://assets/images/1px.png" id="5_ih4ft"]
 [ext_resource type="FontFile" uid="uid://bblvavstun8cd" path="res://assets/fonts/6x6-pixel-font.ttf" id="6_nov50"]
-[ext_resource type="Script" path="res://scripts/volume.gd" id="7_trceg"]
+[ext_resource type="Script" uid="uid://c3fjvp0egix61" path="res://scripts/volume.gd" id="7_trceg"]
 [ext_resource type="FontFile" uid="uid://dfl5rfbgsbq2g" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk_Round_Bold.ttf" id="7_umssr"]
 [ext_resource type="Texture2D" uid="uid://i1y88h0r4b3b" path="res://assets/images/Button.png" id="8_vxglm"]
 [ext_resource type="Script" uid="uid://c2sbigknf8ntr" path="res://scripts/score_manager.gd" id="9_5oeqt"]
@@ -25,10 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://dc5sfyixo2v1l" path="res://assets/images/Bar.png" id="12_y6deb"]
 [ext_resource type="Texture2D" uid="uid://bhalfplstdbny" path="res://assets/images/Dog.png" id="13_0ld40"]
 [ext_resource type="FontFile" uid="uid://boemkey51kyvm" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk.ttf" id="13_a8y0u"]
-[ext_resource type="Script" path="res://scenes/ads.gd" id="13_gqmmt"]
+[ext_resource type="Script" uid="uid://byx0f3c6ahk7j" path="res://scenes/ads.gd" id="13_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://cwtkm87bmingy" path="res://assets/images/Volume.png" id="13_og1vs"]
 [ext_resource type="Texture2D" uid="uid://bgvtrelt0c3k2" path="res://assets/images/sword.png" id="28_2f3dj"]
-[ext_resource type="Script" path="res://scripts/sword.gd" id="28_yq6so"]
+[ext_resource type="Script" uid="uid://cvfbitdagek28" path="res://scripts/sword.gd" id="28_yq6so"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apuo1"]
 
@@ -185,6 +185,14 @@ _data = {
 &"RESET": SubResource("Animation_gqmmt"),
 &"move_dog": SubResource("Animation_0ld40")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkpxi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0nq"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -790,7 +798,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameBoardBackdrop" type="GridContainer" parent="."]
-modulate = Color(0.707967, 0.707967, 0.707966, 1)
+modulate = Color(0.6, 0.6, 0.6, 1)
 z_index = 5
 layout_mode = 1
 anchors_preset = 8
@@ -968,7 +976,7 @@ script = ExtResource("28_yq6so")
 position = Vector2(6, 0)
 texture = ExtResource("28_2f3dj")
 
-[node name="GameBoard" type="Control" parent="." node_paths=PackedStringArray("combo_label", "background_node")]
+[node name="GameBoard" type="Control" parent="." node_paths=PackedStringArray("combo_label", "background_node", "combo_bar")]
 z_index = 10
 layout_mode = 1
 anchors_preset = 8
@@ -986,6 +994,7 @@ script = ExtResource("1_n7xhc")
 tile_scene = ExtResource("3_h5f58")
 combo_label = NodePath("../ScoreManager/ComboLabel")
 background_node = NodePath("../TextureRect")
+combo_bar = NodePath("../ScoreManager/ProgressBar")
 
 [node name="SpawnManager" type="Control" parent="."]
 layout_mode = 1
@@ -1059,23 +1068,42 @@ offset_bottom = 22.0
 grow_horizontal = 2
 texture = ExtResource("10_xe1us")
 
+[node name="ProgressBar" type="ProgressBar" parent="ScoreManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -47.0
+offset_right = 42.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_qkpxi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5q0nq")
+max_value = 1.0
+show_percentage = false
+
 [node name="ComboLabel" type="Label" parent="ScoreManager"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -49.0
-offset_right = -3.0
-offset_bottom = -43.0
-grow_horizontal = 0
+offset_left = -42.0
+offset_top = -56.0
+offset_right = 42.0
+offset_bottom = -50.0
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("13_a8y0u")
 theme_override_font_sizes/font_size = 4
+text = "x1"
 horizontal_alignment = 2
 vertical_alignment = 1
 
