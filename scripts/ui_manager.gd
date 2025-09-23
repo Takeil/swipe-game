@@ -37,9 +37,9 @@ func _on_restart_pressed():
 		if curr_ads >= ADS_INTERVAL:
 			ad_loading.visible = true
 			if is_initialized:
+				if adMob.is_interstitial_ad_loaded():
+					adMob.show_interstitial_ad()
 				adMob.load_interstitial_ad()
-				await adMob.interstitial_ad_loaded
-				adMob.show_interstitial_ad()
 			else:
 				print("Ad is not initialized")
 			ad_loading.visible = false
@@ -63,24 +63,20 @@ func _on_continue_button_pressed() -> void:
 	ad_loading.visible = true
 	
 	if is_initialized:
-		adMob.load_rewarded_ad()
-
-		var success := false
-		await adMob.rewarded_ad_loaded
-
 		if adMob.is_rewarded_ad_loaded():
 			adMob.show_rewarded_ad()
-			success = true
-
-		if not success:
+		else:
 			print("Ad failed to load or show")
 			continue_game()
+		adMob.load_rewarded_ad()
 	else:
 		print("Ad is not initialized")
 		continue_game()
 
 func _on_admob_initialization_completed(_status_data: InitializationStatus) -> void:
 	is_initialized = true
+	adMob.load_interstitial_ad()
+	adMob.load_rewarded_ad()
 
 func _on_admob_rewarded_ad_user_earned_reward(_ad_id: String, _reward_data: RewardItem) -> void:
 	continue_game()
