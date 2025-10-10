@@ -401,7 +401,7 @@ func show_combo_message(text):
 	tween.tween_property(combo_message_label, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(combo_message_label, "modulate:a", 0.0, 0.5).set_delay(0.3)
 
-func play_combo_sound(count):
+func play_combo_sound(_count):
 	var audio = preload("res://assets/sounds/combo.wav")
 	Global.play_sound("Sound", audio)
 

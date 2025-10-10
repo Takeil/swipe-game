@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://18lowxoha1j7"]
+[gd_scene load_steps=79 format=3 uid="uid://18lowxoha1j7"]
 
 [ext_resource type="Texture2D" uid="uid://c1b4q02x440gr" path="res://assets/images/Tile.png" id="1_jqchq"]
 [ext_resource type="Script" uid="uid://5rdbfr4d4nm8" path="res://scripts/board.gd" id="1_n7xhc"]
@@ -27,54 +27,59 @@
 [ext_resource type="FontFile" uid="uid://boemkey51kyvm" path="res://assets/fonts/Tiny-Talk-All/Tiny_Talk.ttf" id="13_a8y0u"]
 [ext_resource type="Script" uid="uid://byx0f3c6ahk7j" path="res://scenes/ads.gd" id="13_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://cwtkm87bmingy" path="res://assets/images/Volume.png" id="13_og1vs"]
+[ext_resource type="Texture2D" uid="uid://dy220ftx816nm" path="res://assets/images/Tutorial.png" id="22_fv21b"]
 [ext_resource type="Texture2D" uid="uid://bgvtrelt0c3k2" path="res://assets/images/sword.png" id="28_2f3dj"]
 [ext_resource type="Script" uid="uid://cvfbitdagek28" path="res://scripts/sword.gd" id="28_yq6so"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apuo1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkpxi"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rou34"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4gso"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fg4cg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_if88a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmqqd"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_it4ix"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrxdc"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0ro3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1lp16"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0nq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1rs2"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1lp16"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0ro3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrxdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_it4ix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmqqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_if88a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fg4cg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4gso"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rou34"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apuo1"]
+
 [sub_resource type="ImageTexture" id="ImageTexture_gqmmt"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yc10j"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jscy8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pm3ni"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6deb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_og1vs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2wyq8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxglm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2f3dj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq6so"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tel4y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv21b"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tel4y"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq6so"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2f3dj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxglm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2wyq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_og1vs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6deb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pm3ni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jscy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yc10j"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_qkpxi"]
 
@@ -186,9 +191,69 @@ _data = {
 &"move_dog": SubResource("Animation_0ld40")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkpxi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tel4y"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(0, 0, 86, 86)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0nq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkpxi"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(86, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q0nq"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(172, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgi5k"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(258, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8jky"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(344, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmb1v"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(430, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuf3a"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(516, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pibwh"]
+atlas = ExtResource("22_fv21b")
+region = Rect2(602, 0, 86, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6pm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tel4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkpxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q0nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgi5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8jky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmb1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuf3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pibwh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -212,7 +277,7 @@ real_interstitial_id = "ca-app-pub-9959431207345046/9532622466"
 real_rewarded_id = "ca-app-pub-9959431207345046/7386833098"
 metadata/_custom_type_script = "uid://c8eqb16yts8k5"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(0.1, 0.4, 0.6, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -221,579 +286,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_ih4ft")
-
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("restart_button", "continue_button", "game_over_screen", "settings_screen", "ad_loading")]
-script = ExtResource("1_tlobp")
-restart_button = NodePath("GameOverScreen/BG2/RestartButton")
-continue_button = NodePath("GameOverScreen/BG2/ContinueButton")
-game_over_screen = NodePath("GameOverScreen")
-settings_screen = NodePath("SettingsScreen")
-ad_loading = NodePath("AdLoading")
-
-[node name="SettingsButton" type="TextureButton" parent="UI"]
-custom_minimum_size = Vector2(8, 8)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -12.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 12.0
-grow_horizontal = 0
-pivot_offset = Vector2(5, 5)
-texture_normal = ExtResource("3_jbj1t")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="GameOverScreen" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="TextureRect" parent="UI/GameOverScreen"]
-self_modulate = Color(1, 1, 1, 0.156863)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ih4ft")
-
-[node name="BG2" type="TextureRect" parent="UI/GameOverScreen"]
-self_modulate = Color(1, 1, 1, 0.498039)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = -45.0
-offset_right = 45.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_jkv2x")
-
-[node name="Label" type="Label" parent="UI/GameOverScreen/BG2"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 1.0
-offset_bottom = 14.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("6_nov50")
-theme_override_font_sizes/font_size = 8
-text = "GAME OVER"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FinalScore" type="Label" parent="UI/GameOverScreen/BG2"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -28.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_ya4ey")
-theme_override_font_sizes/font_size = 5
-text = "SCORE
-12345"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RestartButton" type="Button" parent="UI/GameOverScreen/BG2"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -14.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_apuo1")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rou34")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j4gso")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4cg")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_if88a")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mmqqd")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_it4ix")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hrxdc")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_i0ro3")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1lp16")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_q1rs2")
-
-[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/RestartButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -1.0
-offset_right = -4.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("7_umssr")
-theme_override_font_sizes/font_size = 4
-text = "RESTART"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.0
-offset_top = 1.0
-offset_right = 19.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ih4ft")
-expand_mode = 1
-
-[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.0
-offset_top = 2.0
-offset_right = 18.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ih4ft")
-expand_mode = 1
-
-[node name="ContinueButton" type="Button" parent="UI/GameOverScreen/BG2"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -28.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_apuo1")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rou34")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j4gso")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4cg")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_if88a")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mmqqd")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_it4ix")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hrxdc")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_i0ro3")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1lp16")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_q1rs2")
-
-[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/ContinueButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -1.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("7_umssr")
-theme_override_font_sizes/font_size = 4
-text = "CONTINUE (AD)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = 1.0
-offset_right = 32.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ih4ft")
-expand_mode = 1
-
-[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -31.0
-offset_top = 2.0
-offset_right = 31.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ih4ft")
-expand_mode = 1
-
-[node name="SettingsScreen" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="TextureRect" parent="UI/SettingsScreen"]
-self_modulate = Color(1, 1, 1, 0.156863)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ih4ft")
-
-[node name="BG2" type="TextureRect" parent="UI/SettingsScreen"]
-self_modulate = Color(1, 1, 1, 0.498039)
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_jkv2x")
-
-[node name="Control" type="VBoxContainer" parent="UI/SettingsScreen/BG2"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 6.0
-offset_right = -6.0
-offset_bottom = 90.0
-grow_horizontal = 2
-theme_override_constants/separation = 5
-alignment = 1
-
-[node name="Restart" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
-self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-texture_normal = ExtResource("8_vxglm")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Restart"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = -3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("13_a8y0u")
-theme_override_font_sizes/font_size = 4
-text = "RESTART"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SoundSetting" type="TextureRect" parent="UI/SettingsScreen/BG2/Control"]
-self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
-layout_mode = 2
-texture = ExtResource("11_2wyq8")
-
-[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/SoundSetting"]
-layout_mode = 2
-offset_top = 2.0
-offset_right = 82.0
-offset_bottom = 8.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("13_a8y0u")
-theme_override_font_sizes/font_size = 4
-text = "SOUND"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Sound Setting" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting" node_paths=PackedStringArray("image_container")]
-layout_mode = 2
-offset_top = 9.0
-offset_right = 82.0
-offset_bottom = 24.0
-theme_override_constants/separation = 1
-alignment = 1
-script = ExtResource("7_trceg")
-image_container = NodePath("TextureRect/HBoxContainer")
-audio_bus = "Sound"
-
-[node name="Minus" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
-self_modulate = Color(1, 1, 1, 0.498039)
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture_normal = ExtResource("11_y6deb")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Minus"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("11_jscy8")
-
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
-self_modulate = Color(1, 1, 1, 0.498039)
-layout_mode = 2
-texture = ExtResource("13_og1vs")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect"]
-custom_minimum_size = Vector2(44, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 1.0
-offset_right = -2.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect4" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect5" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect6" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect7" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect8" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="TextureRect9" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-texture = ExtResource("12_y6deb")
-expand_mode = 1
-
-[node name="Add" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
-self_modulate = Color(1, 1, 1, 0.498039)
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("11_y6deb")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Add"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_pm3ni")
-
-[node name="Ads" type="TextureRect" parent="UI/SettingsScreen/BG2/Control"]
-self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
-layout_mode = 2
-texture = ExtResource("8_vxglm")
-
-[node name="Ads" type="CheckBox" parent="UI/SettingsScreen/BG2/Control/Ads" node_paths=PackedStringArray("dog")]
-layout_mode = 2
-offset_left = 2.0
-offset_top = 4.0
-offset_right = 80.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/outline_size = 4
-theme_override_constants/h_separation = 2
-theme_override_constants/icon_max_width = 0
-theme_override_constants/align_to_largest_stylebox = 1
-theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("13_a8y0u")
-theme_override_font_sizes/font_size = 4
-theme_override_icons/icon = SubResource("ImageTexture_gqmmt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yc10j")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jscy8")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_pm3ni")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y6deb")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_og1vs")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2wyq8")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vxglm")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2f3dj")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yq6so")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fv21b")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_tel4y")
-theme_override_icons/checked = ExtResource("10_dp3eg")
-theme_override_icons/unchecked = ExtResource("11_0ld40")
-theme_override_icons/radio_checked = SubResource("ImageTexture_qkpxi")
-theme_override_icons/radio_unchecked = SubResource("ImageTexture_5q0nq")
-theme_override_icons/checked_disabled = SubResource("ImageTexture_dgi5k")
-theme_override_icons/unchecked_disabled = SubResource("ImageTexture_j8jky")
-theme_override_icons/radio_checked_disabled = SubResource("ImageTexture_kmb1v")
-theme_override_icons/radio_unchecked_disabled = SubResource("ImageTexture_fuf3a")
-button_pressed = true
-text = "Enable Ads"
-script = ExtResource("13_gqmmt")
-dog = NodePath("AnimatedSprite2D")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SettingsScreen/BG2/Control/Ads/Ads"]
-position = Vector2(73, 3)
-sprite_frames = SubResource("SpriteFrames_pm3ni")
-autoplay = "default"
-frame_progress = 0.541181
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/SettingsScreen/BG2/Control/Ads/Ads/AnimatedSprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_yc10j")
-}
-autoplay = "move_dog"
-
-[node name="Continue" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
-self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-texture_normal = ExtResource("8_vxglm")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Continue"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("13_a8y0u")
-theme_override_font_sizes/font_size = 4
-text = "CONTINUE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AdLoading" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="BG" type="TextureRect" parent="UI/AdLoading"]
-self_modulate = Color(1, 1, 1, 0.156863)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ih4ft")
-
-[node name="Label" type="Label" parent="UI/AdLoading/BG"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("13_a8y0u")
-theme_override_font_sizes/font_size = 4
-text = "LOADING AD..."
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="GameBoardBackdrop" type="GridContainer" parent="."]
 modulate = Color(0.6, 0.6, 0.6, 1)
@@ -991,7 +483,7 @@ grow_vertical = 2
 script = ExtResource("1_n7xhc")
 tile_scene = ExtResource("3_h5f58")
 combo_label = NodePath("../ScoreManager/ComboLabel")
-background_node = NodePath("../TextureRect")
+background_node = NodePath("../Background")
 combo_bar = NodePath("../ScoreManager/ProgressBar")
 combo_message_label = NodePath("../ScoreManager/ComboMessageLabel")
 
@@ -1130,12 +622,659 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("restart_button", "continue_button", "game_over_screen", "settings_screen", "tutorial_screen", "ad_loading")]
+script = ExtResource("1_tlobp")
+restart_button = NodePath("GameOverScreen/BG2/RestartButton")
+continue_button = NodePath("GameOverScreen/BG2/ContinueButton")
+game_over_screen = NodePath("GameOverScreen")
+settings_screen = NodePath("SettingsScreen")
+tutorial_screen = NodePath("TutorialScreen")
+ad_loading = NodePath("AdLoading")
+
+[node name="SettingsButton" type="TextureButton" parent="UI"]
+custom_minimum_size = Vector2(8, 8)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -12.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 12.0
+grow_horizontal = 0
+pivot_offset = Vector2(5, 5)
+texture_normal = ExtResource("3_jbj1t")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="GameOverScreen" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="UI/GameOverScreen"]
+self_modulate = Color(1, 1, 1, 0.156863)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+
+[node name="BG2" type="TextureRect" parent="UI/GameOverScreen"]
+self_modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jkv2x")
+
+[node name="Label" type="Label" parent="UI/GameOverScreen/BG2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_nov50")
+theme_override_font_sizes/font_size = 8
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScore" type="Label" parent="UI/GameOverScreen/BG2"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -28.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ya4ey")
+theme_override_font_sizes/font_size = 5
+text = "SCORE
+12345"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI/GameOverScreen/BG2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q1rs2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1lp16")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i0ro3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hrxdc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_it4ix")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mmqqd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_if88a")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4cg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j4gso")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rou34")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_apuo1")
+
+[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/RestartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = -4.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_umssr")
+theme_override_font_sizes/font_size = 4
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = 1.0
+offset_right = 19.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+expand_mode = 1
+
+[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = 2.0
+offset_right = 18.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+expand_mode = 1
+
+[node name="ContinueButton" type="Button" parent="UI/GameOverScreen/BG2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q1rs2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1lp16")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i0ro3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hrxdc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_it4ix")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mmqqd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_if88a")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4cg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j4gso")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rou34")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_apuo1")
+
+[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/ContinueButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_umssr")
+theme_override_font_sizes/font_size = 4
+text = "CONTINUE (AD)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 1.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+expand_mode = 1
+
+[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = 2.0
+offset_right = 31.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+expand_mode = 1
+
+[node name="SettingsScreen" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="UI/SettingsScreen"]
+self_modulate = Color(1, 1, 1, 0.156863)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+
+[node name="BG2" type="TextureRect" parent="UI/SettingsScreen"]
+self_modulate = Color(1, 1, 1, 0.498039)
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jkv2x")
+
+[node name="Control" type="VBoxContainer" parent="UI/SettingsScreen/BG2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 6.0
+offset_right = -6.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Restart" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
+self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+texture_normal = ExtResource("8_vxglm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Restart"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("13_a8y0u")
+theme_override_font_sizes/font_size = 4
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
+self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+texture_normal = ExtResource("8_vxglm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Tutorial"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("13_a8y0u")
+theme_override_font_sizes/font_size = 4
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundSetting" type="TextureRect" parent="UI/SettingsScreen/BG2/Control"]
+self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+layout_mode = 2
+texture = ExtResource("11_2wyq8")
+
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/SoundSetting"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 82.0
+offset_bottom = 8.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("13_a8y0u")
+theme_override_font_sizes/font_size = 4
+text = "SOUND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound Setting" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting" node_paths=PackedStringArray("image_container")]
+layout_mode = 0
+offset_top = 9.0
+offset_right = 82.0
+offset_bottom = 24.0
+theme_override_constants/separation = 1
+alignment = 1
+script = ExtResource("7_trceg")
+image_container = NodePath("TextureRect/HBoxContainer")
+audio_bus = "Sound"
+
+[node name="Minus" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
+self_modulate = Color(1, 1, 1, 0.498039)
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+texture_normal = ExtResource("11_y6deb")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Minus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_jscy8")
+
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
+self_modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 2
+texture = ExtResource("13_og1vs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+texture = ExtResource("12_y6deb")
+expand_mode = 1
+
+[node name="Add" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
+self_modulate = Color(1, 1, 1, 0.498039)
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_y6deb")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Add"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_pm3ni")
+
+[node name="Ads" type="TextureRect" parent="UI/SettingsScreen/BG2/Control"]
+self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+layout_mode = 2
+texture = ExtResource("8_vxglm")
+
+[node name="Ads" type="CheckBox" parent="UI/SettingsScreen/BG2/Control/Ads" node_paths=PackedStringArray("dog")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 2
+theme_override_constants/icon_max_width = 0
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("13_a8y0u")
+theme_override_font_sizes/font_size = 4
+theme_override_icons/icon = SubResource("ImageTexture_gqmmt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tel4y")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fv21b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yq6so")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2f3dj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vxglm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2wyq8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_og1vs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y6deb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pm3ni")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_jscy8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yc10j")
+theme_override_icons/checked = ExtResource("10_dp3eg")
+theme_override_icons/unchecked = ExtResource("11_0ld40")
+theme_override_icons/radio_checked = SubResource("ImageTexture_qkpxi")
+theme_override_icons/radio_unchecked = SubResource("ImageTexture_5q0nq")
+theme_override_icons/checked_disabled = SubResource("ImageTexture_dgi5k")
+theme_override_icons/unchecked_disabled = SubResource("ImageTexture_j8jky")
+theme_override_icons/radio_checked_disabled = SubResource("ImageTexture_kmb1v")
+theme_override_icons/radio_unchecked_disabled = SubResource("ImageTexture_fuf3a")
+button_pressed = true
+text = "Enable Ads"
+script = ExtResource("13_gqmmt")
+dog = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SettingsScreen/BG2/Control/Ads/Ads"]
+position = Vector2(73, 3)
+sprite_frames = SubResource("SpriteFrames_pm3ni")
+autoplay = "default"
+frame_progress = 0.541181
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/SettingsScreen/BG2/Control/Ads/Ads/AnimatedSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_yc10j")
+}
+autoplay = "move_dog"
+
+[node name="Continue" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
+self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+texture_normal = ExtResource("8_vxglm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Continue"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("13_a8y0u")
+theme_override_font_sizes/font_size = 4
+text = "CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AdLoading" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BG" type="TextureRect" parent="UI/AdLoading"]
+self_modulate = Color(1, 1, 1, 0.156863)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+
+[node name="Label" type="Label" parent="UI/AdLoading/BG"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("13_a8y0u")
+theme_override_font_sizes/font_size = 4
+text = "LOADING AD..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutorialScreen" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BG" type="TextureRect" parent="UI/TutorialScreen"]
+self_modulate = Color(1, 1, 1, 0.15686275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ih4ft")
+
+[node name="Control" type="Control" parent="UI/TutorialScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/TutorialScreen/Control"]
+sprite_frames = SubResource("SpriteFrames_c6pm6")
+autoplay = "default"
+frame_progress = 0.40057668
+
+[node name="Button" type="Button" parent="UI/TutorialScreen/Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 31.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = -31.0
+
 [connection signal="initialization_completed" from="Admob" to="UI" method="_on_admob_initialization_completed"]
 [connection signal="rewarded_ad_user_earned_reward" from="Admob" to="UI" method="_on_admob_rewarded_ad_user_earned_reward"]
 [connection signal="pressed" from="UI/SettingsButton" to="UI" method="_open_settings_screen"]
 [connection signal="pressed" from="UI/GameOverScreen/BG2/ContinueButton" to="UI" method="_on_continue_button_pressed"]
 [connection signal="button_down" from="UI/SettingsScreen/BG2/Control/Restart" to="UI" method="_on_restart_pressed"]
+[connection signal="button_down" from="UI/SettingsScreen/BG2/Control/Tutorial" to="UI" method="_open_tutorial_screen"]
 [connection signal="button_down" from="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Minus" to="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting" method="_on_minus_button_pressed"]
 [connection signal="button_down" from="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Add" to="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting" method="_on_plus_button_pressed"]
 [connection signal="toggled" from="UI/SettingsScreen/BG2/Control/Ads/Ads" to="UI/SettingsScreen/BG2/Control/Ads/Ads" method="_on_toggled"]
 [connection signal="button_down" from="UI/SettingsScreen/BG2/Control/Continue" to="UI" method="_close_settings_screen"]
+[connection signal="button_down" from="UI/TutorialScreen/Control/Button" to="UI" method="_close_tutorial_screen"]

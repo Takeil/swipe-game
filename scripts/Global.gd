@@ -6,6 +6,7 @@ var settings_data = {
 	"Music": 1,
 	"Sound": 1,
 	"high_score" : 0,
+	"first_run" : 1,
 }
 
 func _ready() -> void:

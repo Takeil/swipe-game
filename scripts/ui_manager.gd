@@ -6,6 +6,7 @@ class_name UIManager
 @export var continue_button : Button
 @export var game_over_screen : Control
 @export var settings_screen : Control
+@export var tutorial_screen : Control
 @export var ad_loading : Control
 @onready var adMob = $"../Admob"
 
@@ -22,6 +23,9 @@ func _ready():
 	toggle_game_over(false)
 	restart_button.pressed.connect(_on_restart_pressed)
 	adMob.initialize()
+	
+	if Global.get_setting_data("first_run") == 1:
+		_open_tutorial_screen()
 
 func toggle_game_over(val = !game_over_screen.visible):
 	game_over_screen.visible = val
@@ -87,3 +91,15 @@ func continue_game():
 	Board.Instance.continue_game()
 	continue_button.visible = false
 	ad_loading.visible = false
+
+func _close_tutorial_screen():
+	Global.play_sound("Sound", preload("res://assets/sounds/click.wav"))
+	tutorial_screen.visible = false
+	Board.Instance.has_control = true
+	Global.set_setting_data('first_run', 0)
+
+func _open_tutorial_screen():
+	Global.play_sound("Sound", preload("res://assets/sounds/click.wav"))
+	settings_screen.visible = false
+	tutorial_screen.visible = true
+	Board.Instance.has_control = false
