@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1kn7cg3pfxjb"]
+[gd_scene format=3 uid="uid://c1kn7cg3pfxjb"]
 
 [ext_resource type="Script" uid="uid://dlvt807v4lu5w" path="res://scripts/tiles/enemy_tile.gd" id="1_6ijqa"]
 [ext_resource type="Texture2D" uid="uid://c6h8yr21m8rl4" path="res://assets/images/tiles/enemy.png" id="2_qiepa"]
 
-[node name="EnemyTile" type="Control"]
+[node name="EnemyTile" type="Control" unique_id=1460348724]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +16,6 @@ grow_vertical = 2
 pivot_offset = Vector2(8, 8)
 script = ExtResource("1_6ijqa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=512100260]
 position = Vector2(8, 8)
 texture = ExtResource("2_qiepa")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://brhhmrne7opil"]
+[gd_scene format=3 uid="uid://brhhmrne7opil"]
 
 [ext_resource type="Script" uid="uid://b67205m7hrebu" path="res://scripts/tiles/item_box.gd" id="1_2tvcb"]
 [ext_resource type="Texture2D" uid="uid://5ysprxx4m2ls" path="res://assets/images/tiles/item.png" id="2_b6fod"]
@@ -105,7 +105,7 @@ _data = {
 &"player_get": SubResource("Animation_b6fod")
 }
 
-[node name="ItemBox" type="Control"]
+[node name="ItemBox" type="Control" unique_id=1940843290]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 15
@@ -119,12 +119,10 @@ grow_vertical = 2
 pivot_offset = Vector2(8, 8)
 script = ExtResource("1_2tvcb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=758297744]
 position = Vector2(8, 8)
 texture = ExtResource("2_b6fod")
 hframes = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_u14cu")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1001242693]
+libraries/ = SubResource("AnimationLibrary_u14cu")

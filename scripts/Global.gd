@@ -32,7 +32,7 @@ func load_settings():
 	else:
 		save_settings()
 
-func play_sound(bus: String, audio: AudioStream) -> void:
+func play_sound(bus: String, audio: AudioStream, random_pitch : bool = false) -> void:
 	var temp_player := AudioStreamPlayer.new()
 	temp_player.stream = audio
 	temp_player.bus = bus
@@ -40,4 +40,6 @@ func play_sound(bus: String, audio: AudioStream) -> void:
 	temp_player.volume_db = 0.0
 	get_tree().get_root().add_child(temp_player)
 	temp_player.connect("finished", temp_player.queue_free)
+	if random_pitch:
+		temp_player.pitch_scale = randf_range(0.9, 1.1)
 	temp_player.play()

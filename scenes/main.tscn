@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://18lowxoha1j7"]
+[gd_scene format=3 uid="uid://18lowxoha1j7"]
 
 [ext_resource type="Texture2D" uid="uid://c1b4q02x440gr" path="res://assets/images/Tile.png" id="1_jqchq"]
 [ext_resource type="Script" uid="uid://5rdbfr4d4nm8" path="res://scripts/board.gd" id="1_n7xhc"]
@@ -31,9 +31,17 @@
 [ext_resource type="Texture2D" uid="uid://bgvtrelt0c3k2" path="res://assets/images/sword.png" id="28_2f3dj"]
 [ext_resource type="Script" uid="uid://cvfbitdagek28" path="res://scripts/sword.gd" id="28_yq6so"]
 
+[sub_resource type="Gradient" id="Gradient_fv21b"]
+colors = PackedColorArray(0.039215688, 0.039215688, 0.039215688, 1, 0.39215687, 0.39215687, 0.39215687, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tel4y"]
+gradient = SubResource("Gradient_fv21b")
+fill_from = Vector2(0, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkpxi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0nq"]
+bg_color = Color(1, 1, 1, 0.39215687)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1rs2"]
 
@@ -255,7 +263,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=705016488]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -263,12 +271,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1196900686]
 anchor_mode = 0
 
-[node name="Admob" type="Node" parent="."]
+[node name="Admob" type="Node" parent="." unique_id=1310864880]
 script = ExtResource("1_vxglm")
-is_real = true
 debug_application_id = "ca-app-pub-3940256099942544~3347511713"
 debug_interstitial_id = "ca-app-pub-3940256099942544/1033173712"
 debug_rewarded_id = "ca-app-pub-3940256099942544/5224354917"
@@ -277,7 +284,7 @@ real_interstitial_id = "ca-app-pub-9959431207345046/9532622466"
 real_rewarded_id = "ca-app-pub-9959431207345046/7386833098"
 metadata/_custom_type_script = "uid://c8eqb16yts8k5"
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=811789590]
 self_modulate = Color(0.1, 0.4, 0.6, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -287,8 +294,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 
-[node name="GameBoardBackdrop" type="GridContainer" parent="."]
-modulate = Color(0.6, 0.6, 0.6, 1)
+[node name="Overlay" type="TextureRect" parent="." unique_id=1185205093]
+modulate = Color(1, 1, 1, 0.29411766)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tel4y")
+
+[node name="GameBoardBackdrop" type="GridContainer" parent="." unique_id=1245272730]
+modulate = Color(0.5882353, 0.5882353, 0.5882353, 0.43137255)
 z_index = 5
 layout_mode = 1
 anchors_preset = 8
@@ -306,167 +323,167 @@ theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
 columns = 5
 
-[node name="TextureRect" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect" type="TextureRect" parent="GameBoardBackdrop" unique_id=516661487]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect2" type="TextureRect" parent="GameBoardBackdrop" unique_id=894018113]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect3" type="TextureRect" parent="GameBoardBackdrop" unique_id=1415041824]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect4" type="TextureRect" parent="GameBoardBackdrop" unique_id=2000610059]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect5" type="TextureRect" parent="GameBoardBackdrop" unique_id=1388717870]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect6" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect6" type="TextureRect" parent="GameBoardBackdrop" unique_id=1585392051]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect7" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect7" type="TextureRect" parent="GameBoardBackdrop" unique_id=3224090]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect8" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect8" type="TextureRect" parent="GameBoardBackdrop" unique_id=1537323833]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect9" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect9" type="TextureRect" parent="GameBoardBackdrop" unique_id=1872406517]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect10" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect10" type="TextureRect" parent="GameBoardBackdrop" unique_id=366666302]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect11" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect11" type="TextureRect" parent="GameBoardBackdrop" unique_id=1426479748]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect12" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect12" type="TextureRect" parent="GameBoardBackdrop" unique_id=510036437]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect13" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect13" type="TextureRect" parent="GameBoardBackdrop" unique_id=635352929]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect14" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect14" type="TextureRect" parent="GameBoardBackdrop" unique_id=2003187806]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect15" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect15" type="TextureRect" parent="GameBoardBackdrop" unique_id=1235336266]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect16" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect16" type="TextureRect" parent="GameBoardBackdrop" unique_id=1649282755]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect17" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect17" type="TextureRect" parent="GameBoardBackdrop" unique_id=121200316]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect18" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect18" type="TextureRect" parent="GameBoardBackdrop" unique_id=785020546]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect19" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect19" type="TextureRect" parent="GameBoardBackdrop" unique_id=1189816382]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect20" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect20" type="TextureRect" parent="GameBoardBackdrop" unique_id=1013420330]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect21" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect21" type="TextureRect" parent="GameBoardBackdrop" unique_id=2110675506]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect22" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect22" type="TextureRect" parent="GameBoardBackdrop" unique_id=120493895]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect23" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect23" type="TextureRect" parent="GameBoardBackdrop" unique_id=29814833]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect24" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect24" type="TextureRect" parent="GameBoardBackdrop" unique_id=1877957731]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="TextureRect25" type="TextureRect" parent="GameBoardBackdrop"]
+[node name="TextureRect25" type="TextureRect" parent="GameBoardBackdrop" unique_id=1776156884]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_jqchq")
 expand_mode = 1
 
-[node name="Sword" type="Node2D" parent="."]
+[node name="Sword" type="Node2D" parent="." unique_id=904560413]
 visible = false
 z_index = 11
 position = Vector2(45, 80)
 script = ExtResource("28_yq6so")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sword"]
+[node name="Sprite2D" type="Sprite2D" parent="Sword" unique_id=1088077907]
 position = Vector2(6, 0)
 texture = ExtResource("28_2f3dj")
 
-[node name="GameBoard" type="Control" parent="." node_paths=PackedStringArray("combo_label", "background_node", "combo_bar", "combo_message_label")]
+[node name="GameBoard" type="Control" parent="." unique_id=293157737 node_paths=PackedStringArray("combo_label", "background_node", "combo_bar", "combo_message_label")]
 z_index = 10
 layout_mode = 1
 anchors_preset = 8
@@ -487,7 +504,7 @@ background_node = NodePath("../Background")
 combo_bar = NodePath("../ScoreManager/ProgressBar")
 combo_message_label = NodePath("../ScoreManager/ComboMessageLabel")
 
-[node name="SpawnManager" type="Control" parent="."]
+[node name="SpawnManager" type="Control" parent="." unique_id=1588368762]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -498,7 +515,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_atok5")
 
-[node name="ScoreManager" type="Control" parent="." node_paths=PackedStringArray("crown_image", "score_label", "high_score_label", "GO_score_label")]
+[node name="ScoreManager" type="Control" parent="." unique_id=2074812724 node_paths=PackedStringArray("crown_image", "score_label", "high_score_label", "GO_score_label")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -511,7 +528,7 @@ score_label = NodePath("ScoreLabel")
 high_score_label = NodePath("HScoreLabel")
 GO_score_label = NodePath("../UI/GameOverScreen/BG2/FinalScore")
 
-[node name="ScoreLabel" type="Label" parent="ScoreManager"]
+[node name="ScoreLabel" type="Label" parent="ScoreManager" unique_id=1830997287]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -529,7 +546,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HScoreLabel" type="Label" parent="ScoreManager"]
+[node name="HScoreLabel" type="Label" parent="ScoreManager" unique_id=1028493898]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -546,7 +563,7 @@ theme_override_font_sizes/font_size = 4
 text = "0"
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="ScoreManager"]
+[node name="TextureRect" type="TextureRect" parent="ScoreManager" unique_id=1457304958]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -559,7 +576,7 @@ offset_bottom = 22.0
 grow_horizontal = 2
 texture = ExtResource("10_xe1us")
 
-[node name="ProgressBar" type="ProgressBar" parent="ScoreManager"]
+[node name="ProgressBar" type="ProgressBar" parent="ScoreManager" unique_id=1754678993]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -577,7 +594,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5q0nq")
 max_value = 1.0
 show_percentage = false
 
-[node name="ComboLabel" type="Label" parent="ScoreManager"]
+[node name="ComboLabel" type="Label" parent="ScoreManager" unique_id=1528895194]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -598,7 +615,7 @@ text = "x1"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ComboMessageLabel" type="Label" parent="ScoreManager"]
+[node name="ComboMessageLabel" type="Label" parent="ScoreManager" unique_id=523238370]
 top_level = true
 z_index = 100
 layout_mode = 1
@@ -622,7 +639,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("restart_button", "continue_button", "game_over_screen", "settings_screen", "tutorial_screen", "ad_loading")]
+[node name="UI" type="CanvasLayer" parent="." unique_id=2047425666 node_paths=PackedStringArray("restart_button", "continue_button", "game_over_screen", "settings_screen", "tutorial_screen", "ad_loading")]
 script = ExtResource("1_tlobp")
 restart_button = NodePath("GameOverScreen/BG2/RestartButton")
 continue_button = NodePath("GameOverScreen/BG2/ContinueButton")
@@ -631,7 +648,7 @@ settings_screen = NodePath("SettingsScreen")
 tutorial_screen = NodePath("TutorialScreen")
 ad_loading = NodePath("AdLoading")
 
-[node name="SettingsButton" type="TextureButton" parent="UI"]
+[node name="SettingsButton" type="TextureButton" parent="UI" unique_id=2056790712]
 custom_minimum_size = Vector2(8, 8)
 anchors_preset = 1
 anchor_left = 1.0
@@ -646,7 +663,7 @@ texture_normal = ExtResource("3_jbj1t")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="GameOverScreen" type="Control" parent="UI"]
+[node name="GameOverScreen" type="Control" parent="UI" unique_id=1728448285]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -655,7 +672,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="TextureRect" parent="UI/GameOverScreen"]
+[node name="BG" type="TextureRect" parent="UI/GameOverScreen" unique_id=1543438509]
 self_modulate = Color(1, 1, 1, 0.156863)
 layout_mode = 1
 anchors_preset = 15
@@ -665,7 +682,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 
-[node name="BG2" type="TextureRect" parent="UI/GameOverScreen"]
+[node name="BG2" type="TextureRect" parent="UI/GameOverScreen" unique_id=2111023541]
 self_modulate = Color(1, 1, 1, 0.498039)
 layout_mode = 1
 anchors_preset = 8
@@ -681,7 +698,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_jkv2x")
 
-[node name="Label" type="Label" parent="UI/GameOverScreen/BG2"]
+[node name="Label" type="Label" parent="UI/GameOverScreen/BG2" unique_id=1617789251]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -696,7 +713,7 @@ text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FinalScore" type="Label" parent="UI/GameOverScreen/BG2"]
+[node name="FinalScore" type="Label" parent="UI/GameOverScreen/BG2" unique_id=656477202]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -715,7 +732,7 @@ text = "SCORE
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartButton" type="Button" parent="UI/GameOverScreen/BG2"]
+[node name="RestartButton" type="Button" parent="UI/GameOverScreen/BG2" unique_id=189858287]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -737,7 +754,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_j4gso")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rou34")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_apuo1")
 
-[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/RestartButton"]
+[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/RestartButton" unique_id=296687077]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -756,7 +773,7 @@ text = "RESTART"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton"]
+[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton" unique_id=1302705415]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -773,7 +790,7 @@ grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 expand_mode = 1
 
-[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton"]
+[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/RestartButton" unique_id=595893486]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -789,7 +806,7 @@ grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 expand_mode = 1
 
-[node name="ContinueButton" type="Button" parent="UI/GameOverScreen/BG2"]
+[node name="ContinueButton" type="Button" parent="UI/GameOverScreen/BG2" unique_id=1390925432]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -811,7 +828,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_j4gso")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rou34")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_apuo1")
 
-[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/ContinueButton"]
+[node name="Label" type="Label" parent="UI/GameOverScreen/BG2/ContinueButton" unique_id=1141163626]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -829,7 +846,7 @@ text = "CONTINUE (AD)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton"]
+[node name="Line" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton" unique_id=1729034011]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -846,7 +863,7 @@ grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 expand_mode = 1
 
-[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton"]
+[node name="Line2" type="TextureRect" parent="UI/GameOverScreen/BG2/ContinueButton" unique_id=556679909]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -862,7 +879,7 @@ grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 expand_mode = 1
 
-[node name="SettingsScreen" type="Control" parent="UI"]
+[node name="SettingsScreen" type="Control" parent="UI" unique_id=1705575759]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -871,7 +888,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="TextureRect" parent="UI/SettingsScreen"]
+[node name="BG" type="TextureRect" parent="UI/SettingsScreen" unique_id=571742777]
 self_modulate = Color(1, 1, 1, 0.156863)
 layout_mode = 1
 anchors_preset = 15
@@ -881,7 +898,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 
-[node name="BG2" type="TextureRect" parent="UI/SettingsScreen"]
+[node name="BG2" type="TextureRect" parent="UI/SettingsScreen" unique_id=1886609470]
 self_modulate = Color(1, 1, 1, 0.498039)
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 1
@@ -898,7 +915,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_jkv2x")
 
-[node name="Control" type="VBoxContainer" parent="UI/SettingsScreen/BG2"]
+[node name="Control" type="VBoxContainer" parent="UI/SettingsScreen/BG2" unique_id=936905525]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -909,7 +926,7 @@ grow_horizontal = 2
 theme_override_constants/separation = 1
 alignment = 1
 
-[node name="Restart" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
+[node name="Restart" type="TextureButton" parent="UI/SettingsScreen/BG2/Control" unique_id=1207822817]
 self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
@@ -917,7 +934,7 @@ texture_normal = ExtResource("8_vxglm")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Restart"]
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Restart" unique_id=989480791]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -936,7 +953,7 @@ text = "RESTART"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tutorial" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
+[node name="Tutorial" type="TextureButton" parent="UI/SettingsScreen/BG2/Control" unique_id=1714232096]
 self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
@@ -944,7 +961,7 @@ texture_normal = ExtResource("8_vxglm")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Tutorial"]
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Tutorial" unique_id=22452267]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -963,12 +980,12 @@ text = "TUTORIAL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoundSetting" type="TextureRect" parent="UI/SettingsScreen/BG2/Control"]
+[node name="SoundSetting" type="TextureRect" parent="UI/SettingsScreen/BG2/Control" unique_id=17020755]
 self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
 layout_mode = 2
 texture = ExtResource("11_2wyq8")
 
-[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/SoundSetting"]
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/SoundSetting" unique_id=392851322]
 layout_mode = 0
 offset_top = 2.0
 offset_right = 82.0
@@ -982,7 +999,7 @@ text = "SOUND"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sound Setting" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting" node_paths=PackedStringArray("image_container")]
+[node name="Sound Setting" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting" unique_id=426928822 node_paths=PackedStringArray("image_container")]
 layout_mode = 0
 offset_top = 9.0
 offset_right = 82.0
@@ -993,7 +1010,7 @@ script = ExtResource("7_trceg")
 image_container = NodePath("TextureRect/HBoxContainer")
 audio_bus = "Sound"
 
-[node name="Minus" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
+[node name="Minus" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting" unique_id=602204053]
 self_modulate = Color(1, 1, 1, 0.498039)
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
@@ -1001,7 +1018,7 @@ texture_normal = ExtResource("11_y6deb")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Minus"]
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Minus" unique_id=1948588268]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1010,12 +1027,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_jscy8")
 
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting" unique_id=133180012]
 self_modulate = Color(1, 1, 1, 0.498039)
 layout_mode = 2
 texture = ExtResource("13_og1vs")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect" unique_id=963615384]
 custom_minimum_size = Vector2(44, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -1029,61 +1046,61 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 1
 
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=24551139]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=105571100]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=68682491]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect4" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=328474983]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect5" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=228512312]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect6" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect6" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=1311727144]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect7" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect7" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=301517237]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect8" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect8" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=354220310]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="TextureRect9" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer"]
+[node name="TextureRect9" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/TextureRect/HBoxContainer" unique_id=522769559]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 texture = ExtResource("12_y6deb")
 expand_mode = 1
 
-[node name="Add" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting"]
+[node name="Add" type="TextureButton" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting" unique_id=97664548]
 self_modulate = Color(1, 1, 1, 0.498039)
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
@@ -1092,7 +1109,7 @@ texture_normal = ExtResource("11_y6deb")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Add"]
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsScreen/BG2/Control/SoundSetting/Sound Setting/Add" unique_id=1281931226]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1101,12 +1118,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_pm3ni")
 
-[node name="Ads" type="TextureRect" parent="UI/SettingsScreen/BG2/Control"]
+[node name="Ads" type="TextureRect" parent="UI/SettingsScreen/BG2/Control" unique_id=235561161]
 self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
 layout_mode = 2
 texture = ExtResource("8_vxglm")
 
-[node name="Ads" type="CheckBox" parent="UI/SettingsScreen/BG2/Control/Ads" node_paths=PackedStringArray("dog")]
+[node name="Ads" type="CheckBox" parent="UI/SettingsScreen/BG2/Control/Ads" unique_id=1810302544 node_paths=PackedStringArray("dog")]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 4.0
@@ -1146,19 +1163,17 @@ text = "Enable Ads"
 script = ExtResource("13_gqmmt")
 dog = NodePath("AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SettingsScreen/BG2/Control/Ads/Ads"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SettingsScreen/BG2/Control/Ads/Ads" unique_id=820463166]
 position = Vector2(73, 3)
 sprite_frames = SubResource("SpriteFrames_pm3ni")
 autoplay = "default"
 frame_progress = 0.541181
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/SettingsScreen/BG2/Control/Ads/Ads/AnimatedSprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_yc10j")
-}
-autoplay = "move_dog"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/SettingsScreen/BG2/Control/Ads/Ads/AnimatedSprite2D" unique_id=1963750110]
+libraries/ = SubResource("AnimationLibrary_yc10j")
+autoplay = &"move_dog"
 
-[node name="Continue" type="TextureButton" parent="UI/SettingsScreen/BG2/Control"]
+[node name="Continue" type="TextureButton" parent="UI/SettingsScreen/BG2/Control" unique_id=929300238]
 self_modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
@@ -1166,7 +1181,7 @@ texture_normal = ExtResource("8_vxglm")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Continue"]
+[node name="Label" type="Label" parent="UI/SettingsScreen/BG2/Control/Continue" unique_id=1814907775]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -1184,7 +1199,7 @@ text = "CONTINUE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AdLoading" type="Control" parent="UI"]
+[node name="AdLoading" type="Control" parent="UI" unique_id=760204409]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -1195,7 +1210,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BG" type="TextureRect" parent="UI/AdLoading"]
+[node name="BG" type="TextureRect" parent="UI/AdLoading" unique_id=1511902661]
 self_modulate = Color(1, 1, 1, 0.156863)
 layout_mode = 1
 anchors_preset = 15
@@ -1205,7 +1220,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 
-[node name="Label" type="Label" parent="UI/AdLoading/BG"]
+[node name="Label" type="Label" parent="UI/AdLoading/BG" unique_id=138543488]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -1223,7 +1238,7 @@ text = "LOADING AD..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TutorialScreen" type="Control" parent="UI"]
+[node name="TutorialScreen" type="Control" parent="UI" unique_id=1293139310]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -1234,7 +1249,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BG" type="TextureRect" parent="UI/TutorialScreen"]
+[node name="BG" type="TextureRect" parent="UI/TutorialScreen" unique_id=1128087465]
 self_modulate = Color(1, 1, 1, 0.15686275)
 layout_mode = 1
 anchors_preset = 15
@@ -1244,7 +1259,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_ih4ft")
 
-[node name="Control" type="Control" parent="UI/TutorialScreen"]
+[node name="Control" type="Control" parent="UI/TutorialScreen" unique_id=1303328091]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1254,12 +1269,12 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/TutorialScreen/Control"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/TutorialScreen/Control" unique_id=1254895916]
 sprite_frames = SubResource("SpriteFrames_c6pm6")
 autoplay = "default"
 frame_progress = 0.40057668
 
-[node name="Button" type="Button" parent="UI/TutorialScreen/Control"]
+[node name="Button" type="Button" parent="UI/TutorialScreen/Control" unique_id=1665437967]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 31.0

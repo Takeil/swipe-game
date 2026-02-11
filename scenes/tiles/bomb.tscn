@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmq0c2najb5ta"]
+[gd_scene format=3 uid="uid://cmq0c2najb5ta"]
 
 [ext_resource type="Script" uid="uid://bq1naruo0klft" path="res://scripts/tiles/bomb.gd" id="1_v2w7m"]
 [ext_resource type="Texture2D" uid="uid://c3wpf0bp23mrc" path="res://assets/images/tiles/bomb.png" id="2_4g3r6"]
@@ -11,7 +11,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 offsets = PackedFloat32Array(0, 0.358156, 0.702128, 1)
 colors = PackedColorArray(0.411765, 0.309804, 0.384314, 1, 0.498039, 0.439216, 0.541176, 1, 0.607843, 0.670588, 0.698039, 1, 0.780392, 0.862745, 0.815686, 1)
 
-[node name="Bomb" type="Control"]
+[node name="Bomb" type="Control" unique_id=1446574175]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 15
@@ -24,11 +24,11 @@ grow_vertical = 2
 pivot_offset = Vector2(8, 8)
 script = ExtResource("1_v2w7m")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=995271344]
 position = Vector2(8, 8)
 texture = ExtResource("2_4g3r6")
 
-[node name="CPUParticles2D" parent="." instance=ExtResource("3_4g3r6")]
+[node name="CPUParticles2D" parent="." unique_id=658104203 instance=ExtResource("3_4g3r6")]
 position = Vector2(8, 8)
 color_ramp = SubResource("Gradient_3oo6d")
 color_initial_ramp = SubResource("Gradient_17npe")

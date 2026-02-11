@@ -36,7 +36,6 @@ func die(attacker):
 func take_damage(attacker):
 	damager = attacker
 	super(attacker)
-	print(attacker.name)
 
 func play_damage_effect():
 	if (damager.type == 1):

@@ -19,7 +19,7 @@ var swiping = false
 var threshold = 100
 var combo_count = 0
 var combo_timer = 0.0
-var combo_timeout = 1.5 #seconds
+var combo_timeout = 2 #seconds
 
 var has_control = true
 

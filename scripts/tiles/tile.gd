@@ -55,22 +55,22 @@ func take_damage(attacker):
 	# Check if the tile is destroyed
 	if hp <= 0:
 		if type in [1, 2]:
-			Global.play_sound("Sound", preload("res://assets/sounds/die.wav"))
+			Global.play_sound("Sound", preload("res://assets/sounds/die.wav"), true)
 		var tween = create_tween()
 		tween.tween_interval(0.1)  # Small delay to allow animations
 		tween.finished.connect(die.bind(attacker))
 	
 	if type == 1:
-		Global.play_sound("Sound", preload("res://assets/sounds/hurt.wav"))
+		Global.play_sound("Sound", preload("res://assets/sounds/hurt.wav"), true)
 	
 	if attacker.type == 1:
 		if type == 2:
-			Global.play_sound("Sound", preload("res://assets/sounds/hit.wav"))
+			Global.play_sound("Sound", preload("res://assets/sounds/hit.wav"), true)
 		if type == 4:
 			if is_movable:
-				Global.play_sound("Sound", preload("res://assets/sounds/light_hit.wav"))
+				Global.play_sound("Sound", preload("res://assets/sounds/light_hit.wav"), true)
 			else:
-				Global.play_sound("Sound", preload("res://assets/sounds/medium_hit.wav"))
+				Global.play_sound("Sound", preload("res://assets/sounds/medium_hit.wav"), true)
 	
 	check_limits()
 

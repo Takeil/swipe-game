@@ -46,6 +46,8 @@ func _on_restart_pressed():
 				adMob.load_interstitial_ad()
 			else:
 				print("Ad is not initialized")
+				# Retry initialization
+				adMob.initialize()
 			ad_loading.visible = false
 			curr_ads = 0
 	
