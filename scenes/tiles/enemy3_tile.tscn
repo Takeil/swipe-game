@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://chxv1yf8214jo"]
+
+[ext_resource type="Script" uid="uid://dlvt807v4lu5w" path="res://scripts/tiles/enemy_tile.gd" id="1_4o2ha"]
+[ext_resource type="Texture2D" uid="uid://by0mgqlqsnl3h" path="res://assets/images/tiles/enemy_3.png" id="2_4o2ha"]
+
+[node name="EnemyTile" type="Control" unique_id=1460348724]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -74.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+script = ExtResource("1_4o2ha")
+enemy_type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=512100260]
+position = Vector2(8, 8)
+texture = ExtResource("2_4o2ha")
+hframes = 3

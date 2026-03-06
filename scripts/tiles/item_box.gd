@@ -20,6 +20,7 @@ func apply_effect(target):
 		target.hp += 1  # Heal
 			#1:
 				#target.damage += 1  # Damage boost
+		PlayerTile.Instance.on_change_hp.emit()
 		target.check_limits()
 
 func die(attacker):
@@ -31,7 +32,7 @@ func die(attacker):
 	if is_instance_valid(attacker):
 		if (attacker.type == 1 or attacker.type == 2):
 			apply_effect(attacker)  # Apply effect to the correct attacker
-	queue_free()
+	super(attacker)
 
 func take_damage(attacker):
 	damager = attacker

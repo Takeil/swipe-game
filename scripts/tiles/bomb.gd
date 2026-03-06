@@ -22,6 +22,9 @@ func die(_attacker):
 		if tile != self and tile.position.distance_to(self.position) < 30:
 			if tile is Tile:  # Check if it's a Tile instance
 				type = 5
-				tile.take_damage(self)  # Pass the bomb as the attacker
+				var tmp_tile = Tile.new()
+				tmp_tile.type = type
+				tmp_tile.damage = 2
+				tile.take_damage(tmp_tile)  # Pass the bomb as the attacker
 	
-	queue_free()  # Remove the bomb after it explodes
+	super(_attacker)

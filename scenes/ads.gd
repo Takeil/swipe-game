@@ -11,6 +11,7 @@ func _ready():
 	Instance = self
 
 func _on_toggled(toggled_on: bool) -> void:
+	button_pressed = toggled_on
 	has_ad = toggled_on
 	
 	print(has_ad)

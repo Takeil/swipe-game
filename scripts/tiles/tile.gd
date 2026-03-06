@@ -36,7 +36,6 @@ func take_damage(attacker):
 		1:
 			match type:
 				2:
-					ScoreManager.Instance.add_score(3)
 					ScoreManager.Instance.add_damage(attacker.damage)
 				3:
 					ScoreManager.Instance.add_score(5)
@@ -75,6 +74,9 @@ func take_damage(attacker):
 	check_limits()
 
 func die(_attacker):
+	if not _attacker:
+		return
+	
 	queue_free()
 
 func show_floating_damage(amount):

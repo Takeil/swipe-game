@@ -1,12 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgofw7qm5b67u"]
+[gd_scene format=3 uid="uid://dgofw7qm5b67u"]
 
 [ext_resource type="PackedScene" uid="uid://18lowxoha1j7" path="res://scenes/main.tscn" id="1_b6lu8"]
 
-[node name="Mainer" type="Node2D"]
+[node name="Mainer" type="Node2D" unique_id=1204880099]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1974034009]
 
-[node name="Main" parent="." instance=ExtResource("1_b6lu8")]
+[node name="Main" parent="." unique_id=1303291335 instance=ExtResource("1_b6lu8")]
 offset_left = -45.0
 offset_top = -80.0
 offset_right = 45.0

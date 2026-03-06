@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5lrwnlodea3a"]
+[gd_scene format=3 uid="uid://b5lrwnlodea3a"]
 
 [sub_resource type="Gradient" id="Gradient_3oo6d"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_17npe"]
 offsets = PackedFloat32Array(0, 0.358156, 0.702128, 1)
-colors = PackedColorArray(0.431373, 0.152941, 0.152941, 1, 0.701961, 0.219608, 0.192157, 1, 0.917647, 0.309804, 0.211765, 1, 0.960784, 0.490196, 0.290196, 1)
+colors = PackedColorArray(0.19914281, 0.28789428, 0.15288392, 1, 0.22669044, 0.47629148, 0.25678918, 1, 0.40262818, 0.61390245, 0.3087307, 1, 0.5798638, 0.69506407, 0.30068555, 1)
 
-[node name="ExplosionEnemy" type="CPUParticles2D"]
+[node name="ExplosionEnemy" type="CPUParticles2D" unique_id=1166954558]
 emitting = false
 amount = 50
 lifetime = 0.3

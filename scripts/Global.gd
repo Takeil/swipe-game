@@ -1,11 +1,12 @@
 extends Node
 
-var settings_file_path = "user://swipe_settings.sav"
+var settings_file_path = "user://swipe_settings.json"
 
 var settings_data = {
 	"Music": 1,
 	"Sound": 1,
 	"high_score" : 0,
+	"high_combo" : 0,
 	"first_run" : 1,
 }
 
@@ -24,11 +25,14 @@ func save_settings():
 	f.store_var(settings_data)
 
 func load_settings():
-	if (FileAccess.file_exists(settings_file_path)):
-		var f = FileAccess
-		if f.file_exists(settings_file_path):
-			f = FileAccess.open(settings_file_path, FileAccess.READ)
-			settings_data = f.get_var()
+	if FileAccess.file_exists(settings_file_path):
+		var f = FileAccess.open(settings_file_path, FileAccess.READ)
+		var loaded_data = f.get_var()
+		f.close()
+		
+		if loaded_data is Dictionary:
+			for key in loaded_data:
+				settings_data[key] = loaded_data[key]
 	else:
 		save_settings()
 

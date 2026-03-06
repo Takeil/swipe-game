@@ -2,12 +2,15 @@ extends Control
 
 class_name Volume
 
+static var Instance : Volume
+
 @export var image_container : Container
 @export var audio_bus : String
 var image_array : Array
 var visible_count = 9
 
 func _ready():
+	Instance = self
 	for child in image_container.get_children():
 		image_array.append(child)
 	set_volume(Global.get_setting_data(audio_bus))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cudfftv57hor8"]
+[gd_scene format=3 uid="uid://cudfftv57hor8"]
 
 [ext_resource type="Texture2D" uid="uid://bb1n5ronr27tq" path="res://assets/images/tiles/Box.png" id="1_b7y5y"]
 
@@ -12,7 +12,7 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0.847518, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="CPUParticles2D" type="CPUParticles2D"]
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=1175236167]
 z_index = 6
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_4xtyb")

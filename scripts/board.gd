@@ -17,9 +17,10 @@ var startPos: Vector2
 var curPos: Vector2
 var swiping = false
 var threshold = 100
+var high_combo = 0
 var combo_count = 0
 var combo_timer = 0.0
-var combo_timeout = 2 #seconds
+var combo_timeout = 5 #seconds
 
 var has_control = true
 
@@ -39,6 +40,7 @@ var combo_milestones = {
 func _ready():
 	Instance = self
 	reset_board(false)
+	high_combo = Global.get_setting_data("high_combo")
 
 func _process(_delta: float) -> void:
 	if !has_control:
@@ -104,6 +106,7 @@ func reset_board(reset_score = true):
 	toggle_control(true)
 	combo_count = 0
 	change_background(combo_milestones[0]["color"])
+	HPVisual.Instance.setup()
 	if (reset_score):
 		ScoreManager.Instance.multilplier = 1 
 		ScoreManager.Instance.reset_score()
@@ -111,6 +114,7 @@ func reset_board(reset_score = true):
 func continue_game():
 	toggle_control(true)
 	spawn_tile("player")
+	HPVisual.Instance.setup()
 
 func initialize_grid():
 	grid = []
@@ -152,34 +156,31 @@ func spawn_tile(type = "random"):
 		# Convert grid position to world position
 		tile_instance.position = Vector2(random_pos.y * tile_size, random_pos.x * tile_size)
 
+func _on_swipe():
+	Sword.Instance.slash()
+	ScoreManager.Instance.add_swipe()
 
 func _unhandled_input(event):
 	if !has_control:
 		return
 	
 	# Keyboard input (for desktop)
-	if event is InputEventKey and event.pressed:
-		match event.keycode:
-			KEY_UP:
-				move_tiles_up()
-				Sword.Instance.slash()
-				ScoreManager.Instance.add_swipe()
-			KEY_DOWN:
-				move_tiles_down()
-				Sword.Instance.slash()
-				ScoreManager.Instance.add_swipe()
-			KEY_LEFT:
-				move_tiles_left()
-				Sword.Instance.slash()
-				ScoreManager.Instance.add_swipe()
-			KEY_RIGHT:
-				move_tiles_right()
-				Sword.Instance.slash()
-				ScoreManager.Instance.add_swipe()
-			KEY_SPACE:
-				spawn_tile()
-			KEY_R:
-				reset_board()
+	if event.is_action_pressed("ui_up"):
+		move_tiles_up()
+		_on_swipe()
+	elif event.is_action_pressed("ui_down"):
+		move_tiles_down()
+		_on_swipe()
+	elif event.is_action_pressed("ui_left"):
+		move_tiles_left()
+		_on_swipe()
+	elif event.is_action_pressed("ui_right"):
+		move_tiles_right()
+		_on_swipe()
+	#elif event.is_action_pressed("debug_spawn"):
+		#spawn_tile()
+	#elif event.is_action_pressed("reset"):
+		#reset_board()
 
 func move_tiles_left():
 	Sword.Instance.set_offset(Vector2(2, 8))
@@ -355,8 +356,8 @@ func on_swipe_complete():
 	update_visuals()
 	spawn_tile()
 	
-	if combo_count > 0 and combo_timer > 0:
-		combo_timer = min(combo_timeout, combo_timer + 0.3)
+	#if combo_count > 0 and combo_timer > 0:
+		#combo_timer = min(combo_timeout, combo_timer + 0.3)
 	
 	await get_tree().create_timer(0.5).timeout
 	check_game_over()
@@ -400,6 +401,9 @@ func show_combo_message(text):
 	var tween = get_tree().create_tween()
 	tween.tween_property(combo_message_label, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(combo_message_label, "modulate:a", 0.0, 0.5).set_delay(0.3)
+
+func get_combo_count():
+	return combo_count
 
 func play_combo_sound(_count):
 	var audio = preload("res://assets/sounds/combo.wav")

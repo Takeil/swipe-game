@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwlb3uemoeu88"]
+[gd_scene format=3 uid="uid://cwlb3uemoeu88"]
 
 [ext_resource type="Script" uid="uid://dtjdoyu8gbl5e" path="res://scripts/tiles/immovable_tile.gd" id="1_nqw6f"]
 [ext_resource type="Texture2D" uid="uid://i81vq0gugcq7" path="res://assets/images/tiles/block.png" id="2_frohr"]
 
-[node name="ImmovableTile" type="Control"]
+[node name="ImmovableTile" type="Control" unique_id=39309237]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +16,7 @@ grow_vertical = 2
 pivot_offset = Vector2(8, 8)
 script = ExtResource("1_nqw6f")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264410622]
 position = Vector2(8, 8)
 texture = ExtResource("2_frohr")
 hframes = 3
